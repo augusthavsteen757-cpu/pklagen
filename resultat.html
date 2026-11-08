@@ -1,0 +1,70 @@
+<!doctype html><html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=6">
+<title>Dit resultat – P-klagen</title>
+</head><body>
+<header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a></div></header>
+<main>
+<section class="hero"><div class="in">
+<p class="label" style="color:var(--ink)">Dit resultat</p>
+<h1 id="v">…</h1>
+</div></section>
+<section class="in tool"><div class="card"><div class="wiz">
+<div class="verdict" id="meter"></div>
+<ul class="list" id="why"></ul>
+<p class="small" id="tryk"></p>
+</div></div></section>
+
+<section class="in sec" id="pris" hidden><div class="buy">
+<div style="display:grid;gap:14px">
+<h2>Her er starten på din klage</h2>
+<p>Klagen er skrevet ud fra dine svar. Betal for at se resten, fylde dit navn og afgiftens nummer ind og få links til, hvor du sender den.</p>
+<div class="peek"><div class="letter" id="peek"></div><div class="lock"><div class="letter blur" aria-hidden="true" id="lockd"></div><div class="lockmsg"><b>Resten af klagen låses op for 99 kr</b><a class="btn sm" href="#kob">Lås op</a></div></div></div>
+<div class="guar"><b>Pengene tilbage</b><span id="gtxt">Fastholder de afgiften, får du dine 99 kr tilbage. Du sender os bare deres afslag.</span></div>
+</div>
+<div class="receipt" id="kob">
+<span class="label">P-klagen</span>
+<span class="big">99 kr</span>
+<ul id="inkl"></ul>
+<label class="consent"><input type="checkbox" id="ok"> <span>Jeg har læst <a href="vilkaar.html">vilkårene</a> og vil have klagen med det samme. Fortrydelsesretten bortfalder, men garantien gælder stadig.</span></label>
+<a class="btn" id="buy" href="#pris" aria-disabled="true">Køb klagen</a>
+<p class="small" id="hint" hidden>Sæt flueben ovenfor først.</p>
+</div>
+</div></section>
+
+<section class="in sec" id="tom" hidden><p>Vi har ikke dine svar. <a href="./#tjek">Tag tjekket</a> først.</p></section>
+<p class="in small" style="padding-bottom:40px"><a href="./">Tag tjekket igen</a></p>
+</main>
+<footer><div class="in"><p>P-klagen drives af Klardal. <a href="vilkaar.html">Vilkår</a></p></div></footer>
+<script>
+(function(){
+var a=null;try{a=JSON.parse(localStorage.getItem('pklagen'))}catch(e){}
+if(!a||a.lvl===undefined){document.getElementById('tom').hidden=false;document.getElementById('v').textContent='Tag tjekket først';return}
+var lvl=a.lvl,lab={'-1':'Det dækker vi ikke',1:'Svag sag',2:'Værd at klage',3:'Stærk sag'}[lvl];
+document.getElementById('v').textContent=lab;
+if(lvl>0)document.getElementById('meter').innerHTML='<div class="meter l'+lvl+'"><i></i><i></i><i></i></div><span class="small">'+(lvl===3?'Gode chancer':lvl===2?'Rimelige chancer':'Små chancer')+'</span>';
+document.getElementById('why').innerHTML=(a.why||[]).map(function(w){return '<li>'+w+'</li>'}).join('');
+var T=document.getElementById('tryk');
+T.textContent='En vejledende vurdering ud fra reglerne. Vi er ikke advokater.';
+if(lvl===1){T.textContent='Ud fra dine svar ser sagen svag ud, og vi anbefaler ikke, at du køber klagen. Har du billeder eller andet, der viser, at afgiften er forkert, kan det ændre billedet.'}
+if(lvl<2)return;
+var N={post:'Afgiften er sendt bagefter i stedet for at sidde på bilen',skilt:'Skiltningen opfylder ikke kravene (Højesteret, U.2014.1719H)',seddel:'Afgiften mangler oplysninger, den skal have',betalt:'Du havde betalt og har kvittering',taste:'Tastefejl i appen (svagt argument)',till:'Du havde en gyldig tilladelse',skive:'P-skiven var stillet rigtigt',gaest:'Rimelig tid til at hente gæstekort (U.2014.1311Ø)',flere:'Flere afgifter for én parkering (U.2016.1396Ø)',tid:'Overskredet tid (svagt argument)',ktaste:'Tastefejl i nummerpladen, når der er betalt (Højesteret 2020)',kbetalt:'Du havde betalt og har kvittering',kskive:'P-skiven var stillet rigtigt',klicens:'Du havde en gyldig licens',kskilt:'Skiltningen var uklar'};
+var kom=a.typ==='kom';
+var g=(a.grunde||[]).filter(function(x){return N[x]});
+document.getElementById('inkl').innerHTML=(kom?['Indsigelse til '+(a.kommune?a.kommune+' Kommune':'kommunen'),'Præcist link til kommunens klageside','Vejledning i, hvad du vedlægger']:['Klage til parkeringsselskabet','Klage til Parkeringsklagenævnet, hvis de siger nej','Svar til inkasso, hvis de begynder at rykke','Præcise links til, hvor du sender det']).map(function(x){return '<li>'+x+'</li>'}).join('');
+if(kom)document.getElementById('gtxt').textContent='Fastholder kommunen afgiften, får du dine 99 kr tilbage. Du sender os bare deres afslag.';
+
+var T1={post:'Kontrolafgiften blev hverken anbragt på køretøjet eller overgivet til mig på stedet. Jeg har først modtaget den efterfølgende.',skilt:'Det fremgik ikke klart og forståeligt af skiltningen, hvilke vilkår der gjaldt for parkeringen.',seddel:'Meddelelsen om kontrolafgiften opfylder ikke kravene i kontrolafgiftsbekendtgørelsens § 2.',betalt:'Jeg havde betalt for parkeringen på den pågældende plads i det pågældende tidsrum.',taste:'Jeg betalte for parkeringen i det pågældende tidsrum, men tastede ved en fejl et forkert registreringsnummer eller en forkert områdekode.',till:'Jeg havde gyldig tilladelse til at parkere på pladsen på tidspunktet, og tilladelsen var anbragt i bilen.',gaest:'Jeg var ved at hente en gæstetilladelse, da afgiften blev pålagt.',skive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',flere:'Jeg har fået mere end én kontrolafgift for den samme sammenhængende parkering.',tid:'Jeg bestrider, at den tilladte parkeringstid var overskredet.',ktaste:'Jeg betalte for parkeringen i hele det pågældende tidsrum, men kom ved en fejl til at taste køretøjets registreringsnummer forkert.',kbetalt:'Jeg havde betalt for parkeringen i det pågældende tidsrum.',kskive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',klicens:'Jeg havde på tidspunktet en gyldig parkeringslicens til området.',kskilt:'Det fremgik ikke tydeligt af skiltningen og afmærkningen på stedet, hvilke regler der gjaldt for parkeringen.'};
+var o={};try{o=JSON.parse(localStorage.getItem('pklagen-ocr'))||{}}catch(e){}
+function e(x){return String(x).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+var dd=a.dato?a.dato.split('-').reverse().join('.'):'[dato]';
+var mod=kom?(a.kommune||o.kommune?e(a.kommune||o.kommune)+' Kommune, Parkering':'[Kommunen], Parkering'):(o.sel?e(o.sel):'[Parkeringsselskabet]');
+var pk='[Dit navn]\n[Din adresse]\n\n'+mod+'\n\n<b>'+(kom?'Indsigelse mod parkeringsafgift':'Indsigelse mod kontrolafgift')+'</b>\n\n'+(kom?'Parkeringsafgift':'Kontrolafgift')+' nr.: '+(o.nr?e(o.nr):'[nummer]')+'\nKøretøj: '+(o.reg?e(o.reg):'[nummerplade]')+'\nDato: '+dd+(o.kl?' kl. '+e(o.kl):'')+'\n\nJeg bestrider kravet og beder om, at afgiften annulleres.\n\n<b>Begrundelse</b>\n1. '+(T1[g[0]]||'');
+document.getElementById('peek').innerHTML=pk;
+var filler=(g.length>1?'Ud over dette gør jeg gældende, at afgiften er pålagt i strid med reglerne for kontrolafgifter, og at selskabet skal dokumentere de faktiske forhold på tidspunktet.\n\n':'')+'Det følger af reglerne og af retspraksis, at afgiften ikke kan kræves betalt i denne situation, og jeg henviser til de afgørelser, der er nævnt nedenfor.\n\n2. Jeg beder om en skriftlig bekræftelse af, at afgiften er annulleret, og om den dokumentation, som afgiften bygger på, herunder billeder.\n\nDa kravet er bestridt, beder jeg om, at sagen ikke sendes til inkasso, og at der ikke pålægges rykkergebyrer, mens sagen behandles.\n\nBilag\n1. Kopi af afgiften\n2. Dokumentation';
+document.getElementById('lockd').textContent=filler;
+document.getElementById('pris').hidden=false;
+var BUY='https://buy.stripe.com/3cI3cvfOW8C94t5d096Vq05',ok=document.getElementById('ok'),buy=document.getElementById('buy'),hint=document.getElementById('hint');
+ok.onchange=function(){if(ok.checked){buy.href=BUY;buy.removeAttribute('aria-disabled');hint.hidden=true}else{buy.href='#pris';buy.setAttribute('aria-disabled','true')}};
+buy.onclick=function(e){if(!ok.checked){e.preventDefault();hint.hidden=false}};
+})();
+</script>
+</body></html>
