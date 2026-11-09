@@ -1,6 +1,6 @@
 // Læser et billede af en p-afgift i browseren (Tesseract.js). Billedet sendes ikke nogen steder hen.
 (function(){
-var SELS=[['Q-Park',/q-?park/i],['APCOA PARKING',/apcoa/i],['Gardian',/gardian/i],['ParkZone',/park\s?zone/i],['EuroPark',/euro\s?park/i],['OnePark',/one\s?park/i]];
+var SELS=[['Q-Park',/q-?park/i],['APCOA PARKING',/apcoa/i],['Gardian',/gardian/i],['ParkZone',/park\s?zone/i],['EuroPark',/euro\s?park/i],['OnePark',/one\s?park/i],['Oparko',/oparko/i],['Sikker Parkering',/sikker\s?parkering/i],['Securitas',/securitas/i],['DinParkering',/din\s?parkering/i],['UnoPark',/uno\s?park/i],['SimplyPark',/simply\s?park|carpay/i],['Copark',/copark/i],['Scan-Park',/scan-?park/i],['ParkPark',/parkpark/i],['Metropark',/metropark/i]];
 function parse(t){var r={},m;
 m=t.match(/\b([A-ZÆØ]{2})\s?(\d{2})\s?(\d{3})\b/);if(m)r.reg=m[1]+' '+m[2]+' '+m[3];
 m=t.match(/\b(\d{1,2})[.\-\/](\d{1,2})[.\-\/](20\d{2})\b/)||t.match(/\b(\d{1,2})[.\-\/](\d{1,2})[.\-\/](\d{2})\b/);

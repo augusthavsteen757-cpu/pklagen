@@ -146,3 +146,8 @@ footer .in{display:grid;gap:8px}
 .lockmsg{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:12px;text-align:center;background:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,.85) 40%)}
 .savebox{background:var(--yellow);border-radius:14px;padding:18px 20px;display:grid;gap:10px}
 .savebox input{font:500 .85rem var(--mono)}
+.args,.evl{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.tag{display:inline-block;font:600 .72rem/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:5px 8px;border-radius:6px;margin-right:6px}
+.tag.s3{background:#cdeccf;color:#14532d}.tag.s2{background:#fde68a;color:#713f12}.tag.s1{background:#fecaca;color:#7f1d1d}
+.evl label{display:flex;gap:10px;align-items:flex-start}
+#nstat{background:var(--card);border-radius:10px;padding:10px 12px}
