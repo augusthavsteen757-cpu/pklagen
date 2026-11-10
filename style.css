@@ -248,3 +248,36 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px var(--tint)}
 .savebox{border:1px solid var(--line)}
 footer{background:#fff;color:var(--muted);border-top:1px solid var(--line);padding-block:24px 36px}
 footer a{color:inherit;text-decoration-color:#b9b9b2}
+
+/* v7: samme enkle opbygning, men med farve: gul top, kort der ligger ind over, nummererede trin, mørk bund. */
+:root{--bg:#faf8f3}
+body{background:var(--bg)}
+.narrow .in{max-width:860px}
+h1{font-weight:700;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.03em;line-height:1.05}
+h2{font-weight:700;font-size:clamp(1.4rem,3vw,1.8rem)}
+header.top{background:var(--yellow);border-bottom:0}
+.logo::before{background:var(--ink);color:var(--yellow)}
+.hero{background:var(--yellow);padding-block:clamp(28px,6vw,56px) 32px}
+.hero:has(+.tool){padding-bottom:96px}
+.hero+.tool{margin-top:-64px}
+.hero .sub{color:#3a3520;font-size:1.15rem;max-width:44ch}
+.card{border:0;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(30,25,0,.08),0 12px 32px rgba(30,25,0,.10)}
+.btn{border-radius:12px;font-weight:600}
+.btn.wide{padding-block:18px;font-size:1.08rem}
+.ticks{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.95rem;font-weight:500}
+.ticks li::before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:50%;background:var(--yellow);font-size:.75rem;font-weight:700}
+.how{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:h}
+@media(min-width:720px){.how{grid-template-columns:repeat(3,1fr)}}
+.how li{counter-increment:h;background:#fff;border-radius:16px;padding:20px;display:grid;gap:6px;align-content:start;box-shadow:0 1px 2px rgba(30,25,0,.08)}
+.how li::before{content:counter(h);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);font-weight:700;margin-bottom:6px}
+.how b{font-weight:700;font-size:1.08rem}
+.how span{color:var(--muted);font-size:.96rem}
+.faq{background:#fff;border:0;border-radius:16px;padding:4px 20px;box-shadow:0 1px 2px rgba(30,25,0,.08)}
+.faq details:last-child{border-bottom:0}
+.opts label,.opts label:first-of-type{border-width:1.5px;border-radius:12px}
+.opts label:has(input:checked){border-color:var(--ink);background:var(--yellow)}
+.receipt,.savebox{border:0;background:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(30,25,0,.08),0 12px 32px rgba(30,25,0,.10)}
+.receipt .big{font:700 2.8rem/1 var(--body)}
+.guar,.note{background:var(--yellow)}
+footer{background:var(--ink);color:#cfcabb;border-top:0;margin-top:24px}
+footer a{color:#fff;text-decoration-color:#77735f}
