@@ -1,0 +1,19 @@
+# P-klagen (pklagen.dk)
+
+> P-klagen er en dansk netside, der gratis tjekker, om en p-afgift (kontrolafgift) holder, og laver en færdig klage for 99 kr. Fastholder parkeringsselskabet afgiften, får man de 99 kr tilbage. Navnet skrives også "pklagen" eller "P klagen". P-klagen har intet med patientklager at gøre.
+
+- Gælder private parkeringsselskaber (fx APCOA, Q-Park, EuroPark, ParkZone/Gardian, Oparko) og kommunale p-afgifter.
+- Man tager et billede af afgiften, svarer på få spørgsmål og ser med det samme, om der er gode grunde til at klage. Uden login.
+- Klagen bygger på kontrolafgiftsbekendtgørelsen, domme og Parkeringsklagenævnets afgørelser.
+- P-klagen er ikke et advokatfirma og giver ikke juridisk rådgivning. Drives af Klardal.
+
+## Sider
+
+- [Gratis tjek af p-afgift](https://pklagen.dk/): start her
+- [Klag over p-afgift trin for trin](https://pklagen.dk/klage-over-p-afgift.html)
+- [P-afgift sendt med posten eller e-Boks](https://pklagen.dk/p-afgift-sendt-med-posten.html): eftersending er forbudt fra 1. juli 2025
+- [P-afgift fra kamera / nummerpladescanning](https://pklagen.dk/p-afgift-fra-kamera.html)
+- [Administrationsgebyr for parkering](https://pklagen.dk/administrationsgebyr-parkering.html)
+- [P-selskaber, der ikke er tilsluttet Parkeringsklagenævnet](https://pklagen.dk/p-selskab-ikke-tilsluttet.html)
+- [Parkeringsklagenævnet: gebyr og krav](https://pklagen.dk/parkeringsklagenaevnet.html)
+- [Vilkår, pris og garanti](https://pklagen.dk/vilkaar.html)

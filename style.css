@@ -27,7 +27,7 @@ a:hover{text-decoration-thickness:2px}
 header.top{background:var(--yellow)}
 header.top .in{display:flex;align-items:center;gap:14px;padding-block:16px}
 .logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font:800 1.15rem var(--display);font-stretch:88%;margin-right:auto;color:var(--ink)}
-.logo::before{content:"P";display:grid;place-items:center;width:28px;height:28px;background:var(--ink);color:#fff;border-radius:4px;font:800 1.05rem var(--display)}
+.logo::before{content:"";width:28px;height:28px;background:url(img/logo.svg) center/contain no-repeat}
 .toplink{font-weight:500;font-size:.95rem;text-decoration:none}
 .toplink:hover{text-decoration:underline}
 
@@ -200,7 +200,7 @@ h3{font-size:1.05rem;letter-spacing:-.01em}
 header.top{background:#fff;border-bottom:1px solid var(--line)}
 header.top .in{padding-block:14px}
 .logo{font:600 1.05rem var(--body)}
-.logo::before{background:var(--yellow);color:var(--ink);border-radius:6px;font:700 1rem var(--body)}
+.logo::before{border-radius:0}
 .btn{border-radius:10px}
 .btn:hover{background:#333;box-shadow:none}
 .btn.ghost{box-shadow:inset 0 0 0 1px #b9b9b2}
@@ -256,7 +256,7 @@ body{background:var(--bg)}
 h1{font-weight:700;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.03em;line-height:1.05}
 h2{font-weight:700;font-size:clamp(1.4rem,3vw,1.8rem)}
 header.top{background:var(--yellow);border-bottom:0}
-.logo::before{background:var(--ink);color:var(--yellow)}
+/* logo: img/logo.svg */
 .hero{background:var(--yellow);padding-block:clamp(28px,6vw,56px) 32px}
 .hero:has(+.tool){padding-bottom:96px}
 .hero+.tool{margin-top:-64px}
