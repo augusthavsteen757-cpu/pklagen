@@ -40,6 +40,6 @@ var PK_REG=[
 function pkD(s){var p=s.split('-');return +p[2]+'.'+(+p[1])+'.'+p[0]}
 /* Returnerer null (ukendt), eller {navn,cvr,ok,per} hvor ok=false betyder: ikke tilsluttet på datoen */
 function pkNaevn(sel,dato){if(!sel)return null;for(var i=0;i<PK_REG.length;i++){var r=PK_REG[i];if(r[0].test(sel)){
-var ok=null;if(dato){ok=r[3].some(function(p){return dato>=p[0]&&(!p[1]||dato<=p[1])})}
+var ok=null;if(dato&&dato>='2018-07-01'){ok=r[3].some(function(p){return dato>=p[0]&&(!p[1]||dato<=p[1])})}
 var per=r[3].map(function(p){return 'fra '+pkD(p[0])+(p[1]?' til '+pkD(p[1]):'')}).join(' og ');
 return {navn:r[1],cvr:r[2],ok:ok,per:per}}}return null}

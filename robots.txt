@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /klage-p9w4x7.html
-Disallow: /resultat.html
+Allow: /
 Sitemap: https://pklagen.dk/sitemap.xml
