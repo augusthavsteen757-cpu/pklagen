@@ -33,6 +33,8 @@ else if(/politi/i.test(t)&&/bøde/i.test(t)){r.hvem='pol'}}
 // Kun et gæt, som brugeren bekræfter i tjekket. Kamera-sager skal ramme 'anpr' og ikke bare 'post'.
 if(/anpr|nummerplade\s?(?:genkend|scan|aflæs|registr)|kamera\s?(?:kontrol|registr|system|scan)/i.test(t))r.hvor='anpr';
 else if(/e-?boks|eftersendt|eftersendelse/i.test(t))r.hvor='post';
+var G=[['adm',/administrationsgebyr/i],['skive',/p-?\s?skive|parkeringsskive/i],['till',/(?:ingen|uden|manglende|ugyldig)\s(?:gyldig\s)?(?:p-?|parkerings)?(?:tilladelse|licens)/i],['baas',/uden\s?for\s(?:afmærket\s|markeret\s)?(?:bås|felt|parkeringsbås)/i],['tid',/tid(?:en)?\s(?:er\s)?overskredet|overskrid\w*\saf\s(?:den\s)?(?:tilladte\s|betalte\s)?(?:parkerings)?tid|ud\s?over\sden\s(?:tilladte|betalte)\stid|parkeret\sfor\slænge|billet(?:ten)?\s(?:er\s)?udløbet/i],['betalt',/(?:ingen|manglende|ikke|uden)\s(?:gyldig\s|registreret\s)?(?:betaling|betalt|p-?billet|billet)|ugyldig\s(?:betaling|billet)/i]];
+for(var g=0;g<G.length;g++)if(G[g][1].test(t)){r.grund=G[g][0];break}
 return r}
 function load(cb,fail){if(window.Tesseract)return cb();var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=cb;s.onerror=fail;document.head.appendChild(s)}
 /* Tegner billedet ned på et lærred først. Det retter mobilbilleder, der er gemt på siden
