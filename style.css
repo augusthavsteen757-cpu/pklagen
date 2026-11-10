@@ -151,3 +151,6 @@ footer .in{display:grid;gap:8px}
 .tag.s3{background:#cdeccf;color:#14532d}.tag.s2{background:#fde68a;color:#713f12}.tag.s1{background:#fecaca;color:#7f1d1d}
 .evl label{display:flex;gap:10px;align-items:flex-start}
 #nstat{background:var(--card);border-radius:10px;padding:10px 12px}
+
+.opts.sub{margin:0 0 6px 22px;padding-left:14px;border-left:3px solid var(--ink)}
+.opts.sub label{padding:12px 14px;font-weight:400}

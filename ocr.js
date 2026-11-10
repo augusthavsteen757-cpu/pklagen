@@ -1,6 +1,6 @@
 // Læser et billede af en p-afgift i browseren (Tesseract.js). Billedet sendes ikke nogen steder hen.
 (function(){
-var SELS=[['Q-Park',/q-?park/i],['APCOA PARKING',/apcoa/i],['Gardian',/gardian/i],['ParkZone',/park\s?zone/i],['EuroPark',/euro\s?park/i],['OnePark',/one\s?park/i],['Oparko',/oparko/i],['Sikker Parkering',/sikker\s?parkering/i],['Securitas',/securitas/i],['DinParkering',/din\s?parkering/i],['UnoPark',/uno\s?park/i],['SimplyPark',/simply\s?park|carpay/i],['Copark',/copark/i],['Scan-Park',/scan-?park/i],['ParkPark',/parkpark/i],['Metropark',/metropark/i],['Smart Parking',/smart parking/i],['Safe Park',/safe\s?park/i],['Parkware',/parkware/i],['All Parkering',/all parkering/i]];
+var SELS=[['Q-Park',/q-?park/i],['APCOA PARKING',/apcoa/i],['Gardian',/gardian/i],['ParkZone',/park\s?zone/i],['EuroPark',/euro\s?park/i],['OnePark',/\bone\s?park/i],['Oparko',/oparko/i],['Sikker Parkering',/sikker\s?parkering/i],['Securitas',/securitas/i],['DinParkering',/\bdin\s?parkering/i],['UnoPark',/\buno\s?park/i],['SimplyPark',/simply\s?park|carpay/i],['Copark',/copark/i],['Scan-Park',/scan-?park/i],['ParkPark',/parkpark/i],['Metropark',/metropark/i],['Smart Parking',/smart parking/i],['Safe Park',/safe\s?park/i],['Parkware',/parkware/i],['All Parkering',/all parkering/i]];
 function p2(n){return ('0'+n).slice(-2)}
 function today(){var d=new Date();return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
 /* Finder parkeringsdatoen. Et brev har ofte flere datoer (brevdato, betalingsfrist).
