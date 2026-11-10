@@ -1,64 +1,69 @@
 <!doctype html><html lang="da"><head><!-- Google tag (consent mode: ingen cookies uden samtykke) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18561853822"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','AW-18561853822');</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=6">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=12">
 <title>Dit resultat – P-klagen</title>
-</head><body>
+</head><body class="narrow">
 <header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a></div></header>
 <main>
 <section class="hero"><div class="in">
-<p class="label" style="color:var(--ink)">Dit resultat</p>
+<p class="small">Dit resultat</p>
 <h1 id="v">…</h1>
+<p class="sub" id="next"></p>
 </div></section>
 <section class="in tool"><div class="card"><div class="wiz">
 <div class="verdict" id="meter"></div>
 <ul class="list" id="why"></ul>
 <p class="small" id="tryk"></p>
+<a class="btn" id="cta" href="#kob" hidden>Få klagen for 99 kr</a>
 </div></div></section>
 
 <section class="in sec" id="pris" hidden><div class="buy">
-<div style="display:grid;gap:14px">
-<h2>Her er starten på din klage</h2>
-<p>Klagen er skrevet ud fra dine svar. Betal for at se resten, fylde dit navn og afgiftens nummer ind og få links til, hvor du sender den.</p>
+<div class="stack">
+<h2>Starten på din klage</h2>
+<p class="small">Skrevet ud fra dine svar. Resten låses op, når du har betalt, og så sætter du navn og adresse på.</p>
 <div class="peek"><div class="letter" id="peek"></div><div class="lock"><div class="letter blur" aria-hidden="true" id="lockd"></div><div class="lockmsg"><b>Resten af klagen låses op for 99 kr</b><a class="btn sm" href="#kob">Lås op</a></div></div></div>
-<div class="guar"><b>Pengene tilbage</b><span id="gtxt">Fastholder de afgiften, får du dine 99 kr tilbage. Du sender os bare deres afslag.</span></div>
 </div>
 <div class="receipt" id="kob">
-<span class="label">P-klagen</span>
+<span class="label">Klagen, klar til at sende</span>
 <span class="big">99 kr</span>
 <ul id="inkl"></ul>
+<div class="guar"><b>Pengene tilbage</b><span id="gtxt">Siger selskabet nej, sender du os afslaget og får dine 99 kr igen.</span></div>
 <label class="consent"><input type="checkbox" id="ok"> <span>Jeg har læst <a href="vilkaar.html">vilkårene</a> og vil have klagen med det samme. Fortrydelsesretten bortfalder, men garantien gælder stadig.</span></label>
-<a class="btn" id="buy" href="#pris" aria-disabled="true">Køb klagen</a>
+<a class="btn wide" id="buy" href="#pris" aria-disabled="true">Køb klagen</a>
 <p class="small" id="hint" hidden>Sæt flueben ovenfor først.</p>
 </div>
 </div></section>
 
 <section class="in sec" id="tom" hidden><p>Vi har ikke dine svar. <a href="./#tjek">Tag tjekket</a> først.</p></section>
-<p class="in small" style="padding-bottom:40px"><a href="./">Tag tjekket igen</a></p>
+<p class="in small" style="padding-block:8px 40px"><a href="./">Tag tjekket igen</a></p>
 </main>
-<footer><div class="in"><p>P-klagen drives af Klardal. <a href="vilkaar.html">Vilkår</a></p></div></footer>
-<script src="naevn.js?v=1"></script>
+<footer><div class="in"><p>P-klagen drives af Klardal. Vi er ikke advokater, og vurderingen er ikke juridisk rådgivning. <a href="vilkaar.html">Vilkår</a></p></div></footer>
+<script src="naevn.js?v=3"></script>
 <script>
 (function(){
 var a=null;try{a=JSON.parse(localStorage.getItem('pklagen'))}catch(e){}
 if(!a||a.lvl===undefined){document.getElementById('tom').hidden=false;document.getElementById('v').textContent='Tag tjekket først';return}
 var o={};try{o=JSON.parse(localStorage.getItem('pklagen-ocr'))||{}}catch(e){}
 if(a.typ!=='kom'&&o.sel&&a.dato){var NV=pkNaevn(o.sel,a.dato);if(NV&&NV.ok===false){a.lvl=3;a.why=['Vi har tjekket selskabet: '+NV.navn+' var ikke tilsluttet Parkeringsklagenævnet på dagen (tilsluttet '+NV.per+'). Et selskab, der ikke er tilsluttet nævnet, kan ikke kræve kontrolafgifter betalt, jf. færdselslovens § 122 c, stk. 2.'].concat(a.why||[]);a.grunde=['ikketilm'].concat(a.grunde||[])}}
-var lvl=a.lvl,lab={'-1':'Det dækker vi ikke',1:'Svag sag',2:'Værd at klage',3:'Stærk sag'}[lvl];
+var lvl=a.lvl,bevis=lvl===1&&a.typ!=='kom'&&(a.grunde||[]).indexOf('vedikke')>=0,lab=bevis?'Lad dem bevise det':{'-1':'Det dækker vi ikke',1:'Svag sag',2:'Værd at klage',3:'Stærk sag'}[lvl];
 document.getElementById('v').textContent=lab;
-if(lvl>0)document.getElementById('meter').innerHTML='<div class="meter l'+lvl+'"><i></i><i></i><i></i></div><span class="small">'+(lvl===3?'Gode chancer':lvl===2?'Rimelige chancer':'Små chancer')+'</span>';
+document.getElementById('next').textContent=lvl===-1?'Bøder fra politiet kan vi ikke hjælpe med.':bevis?'Betal ikke endnu. Få først selskabet til at vise, at afgiften er rigtig.':lvl>=2?'Betal ikke endnu. Send en klage først, det er gratis at klage til '+(a.typ==='kom'?'kommunen':'selskabet')+'.':'Vi kan ikke se en fejl i afgiften ud fra dine svar.';
+if(lvl>0)document.getElementById('meter').innerHTML='<div class="meter l'+lvl+'"><i></i><i></i><i></i></div><span class="small">'+(lvl===3?'Gode chancer':lvl===2?'Rimelige chancer':bevis?'Ingen klar fejl endnu':'Små chancer')+'</span>';
 document.getElementById('why').innerHTML=(a.why||[]).map(function(w){return '<li>'+w+'</li>'}).join('');
 var T=document.getElementById('tryk');
-T.textContent='En vejledende vurdering ud fra reglerne. Vi er ikke advokater.';
-if(lvl===1){T.textContent='Ud fra dine svar ser sagen svag ud, og vi anbefaler ikke, at du køber klagen. Har du billeder eller andet, der viser, at afgiften er forkert, kan det ændre billedet.'}
-if(lvl<2)return;
-var N={anpr:'Afgift via kamera, sendt bagefter (nævnets sag 14567)',adm:'"Administrationsgebyr" er en kontrolafgift (nævnets sag 18103)',baas:'Utydelig båsafmærkning (nævnets sag 11593)',forer:'Det var ikke dig, der kørte (Højesteret, U.2015.27H)',ikketilm:'Selskabet var ikke tilsluttet Parkeringsklagenævnet',post:'Afgiften er sendt bagefter i stedet for at sidde på bilen',skilt:'Skiltningen opfylder ikke kravene (Højesteret, U.2014.1719H)',seddel:'Afgiften mangler oplysninger, den skal have',betalt:'Du havde betalt og har kvittering',taste:'Tastefejl i appen (svagt argument)',till:'Du havde en gyldig tilladelse',skive:'P-skiven var stillet rigtigt',gaest:'Rimelig tid til at hente gæstekort (U.2014.1311Ø)',flere:'Flere afgifter for én parkering (U.2016.1396Ø)',tid:'Overskredet tid (svagt argument)',ktaste:'Tastefejl i nummerpladen, når der er betalt (Højesteret 2020)',kbetalt:'Du havde betalt og har kvittering',kskive:'P-skiven var stillet rigtigt',klicens:'Du havde en gyldig licens',kskilt:'Skiltningen var uklar'};
+T.textContent='En vejledende vurdering ud fra dine svar og reglerne. Vi kan ikke love, at du får medhold.';
+if(bevis){T.textContent='Vi kan ikke se en klar fejl ud fra dine svar. Men det er selskabet, der skal bevise, at afgiften er rigtig. Klagen bestrider kravet og kræver deres billeder, skiltning og dokumentation. Kan de ikke levere, eller viser billederne en fejl, står du stærkt. Vi lover ikke, at du vinder.'}
+else if(lvl===1){T.textContent='Ud fra dine svar ser sagen svag ud, og vi anbefaler ikke, at du køber klagen. Har du billeder eller andet, der viser, at afgiften er forkert, kan det ændre billedet.'}
+if(lvl<2&&!bevis)return;
+document.getElementById('cta').hidden=false;
+var N={vedikke:'Selskabet skal bevise, at afgiften er rigtig',anpr:'Afgift via kamera, sendt bagefter (nævnets sag 14567)',adm:'"Administrationsgebyr" er en kontrolafgift (nævnets sag 18103)',baas:'Utydelig båsafmærkning (nævnets sag 11593)',forer:'Det var ikke dig, der kørte (Højesteret, U.2015.27H)',ikketilm:'Selskabet var ikke tilsluttet Parkeringsklagenævnet',post:'Afgiften er sendt bagefter i stedet for at sidde på bilen',skilt:'Skiltningen opfylder ikke kravene (Højesteret, U.2014.1719H)',seddel:'Afgiften mangler oplysninger, den skal have',betalt:'Du havde betalt og har kvittering',taste:'Tastefejl i appen (svagt argument)',till:'Du havde en gyldig tilladelse',skive:'P-skiven var stillet rigtigt',gaest:'Rimelig tid til at hente gæstekort (U.2014.1311Ø)',flere:'Flere afgifter for én parkering (U.2016.1396Ø)',tid:'Overskredet tid (svagt argument)',ktaste:'Tastefejl i nummerpladen, når der er betalt (Højesteret 2020)',kbetalt:'Du havde betalt og har kvittering',kskive:'P-skiven var stillet rigtigt',klicens:'Du havde en gyldig licens',kskilt:'Skiltningen var uklar'};
 var kom=a.typ==='kom';
-var g=(a.grunde||[]).filter(function(x){return N[x]});
-document.getElementById('inkl').innerHTML=(kom?['Indsigelse til '+(a.kommune?a.kommune+' Kommune':'kommunen')+' med det stærkeste argument først','Krav om aktindsigt i kommunens billeder','Præcist link til kommunens klageside','Bevisliste og frister i din kalender']:['Klage til parkeringsselskabet med det stærkeste argument først','Selskabet tjekket mod nævnets liste over tilsluttede selskaber','Krav om selskabets billeder og data efter GDPR','Klage til Parkeringsklagenævnet, hvis de siger nej','Svar til inkasso, hvis de begynder at rykke','Bevisliste og frister i din kalender']).map(function(x){return '<li>'+x+'</li>'}).join('');
-if(kom)document.getElementById('gtxt').textContent='Fastholder kommunen afgiften, får du dine 99 kr tilbage. Du sender os bare deres afslag.';
+var g=(a.grunde||[]).filter(function(x){return N[x]&&(x!=='vedikke'||bevis)});
+document.getElementById('inkl').innerHTML=(kom?['Færdig klage til '+(a.kommune?a.kommune+' Kommune':'kommunen'),'Krav om at se kommunens billeder','Link til kommunens klageside']:['Færdig klage med dit stærkeste argument først','Link til selskabets klageformular','Rykker, klage til nævnet og svar til inkasso, hvis du får brug for dem']).map(function(x){return '<li>'+x+'</li>'}).join('');
+if(kom)document.getElementById('gtxt').textContent='Siger kommunen nej, sender du os afslaget og får dine 99 kr igen.';
 
-var T1={anpr:'Kontrolafgiften er udstedt på grundlag af automatisk nummerpladegenkendelse (kameraer) og er alene sendt til mig efterfølgende.',adm:'Det opkrævede "administrationsgebyr" er i realiteten en kontrolafgift for en påstået overtrædelse af parkeringsvilkårene.',baas:'Afmærkningen af parkeringsbåsen var så nedslidt og utydelig, at jeg ikke kunne se, hvor båsen var.',forer:'Det var ikke mig, der førte køretøjet og foretog parkeringen.',ikketilm:'Parkeringsselskabet var ikke tilsluttet Parkeringsklagenævnet på dagen for parkeringen.',post:'Kontrolafgiften blev hverken anbragt på køretøjet eller overgivet til mig på stedet. Jeg har først modtaget den efterfølgende.',skilt:'Det fremgik ikke klart og forståeligt af skiltningen, hvilke vilkår der gjaldt for parkeringen.',seddel:'Meddelelsen om kontrolafgiften opfylder ikke kravene i kontrolafgiftsbekendtgørelsens § 2.',betalt:'Jeg havde betalt for parkeringen på den pågældende plads i det pågældende tidsrum.',taste:'Jeg betalte for parkeringen i det pågældende tidsrum, men tastede ved en fejl et forkert registreringsnummer eller en forkert områdekode.',till:'Jeg havde gyldig tilladelse til at parkere på pladsen på tidspunktet, og tilladelsen var anbragt i bilen.',gaest:'Jeg var ved at hente en gæstetilladelse, da afgiften blev pålagt.',skive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',flere:'Jeg har fået mere end én kontrolafgift for den samme sammenhængende parkering.',tid:'Jeg bestrider, at den tilladte parkeringstid var overskredet.',ktaste:'Jeg betalte for parkeringen i hele det pågældende tidsrum, men kom ved en fejl til at taste køretøjets registreringsnummer forkert.',kbetalt:'Jeg havde betalt for parkeringen i det pågældende tidsrum.',kskive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',klicens:'Jeg havde på tidspunktet en gyldig parkeringslicens til området.',kskilt:'Det fremgik ikke tydeligt af skiltningen og afmærkningen på stedet, hvilke regler der gjaldt for parkeringen.'};
+var T1={vedikke:'Jeg kan ikke ud fra det, jeg har modtaget, se, at betingelserne for at pålægge en kontrolafgift var opfyldt.',anpr:'Kontrolafgiften er udstedt på grundlag af automatisk nummerpladegenkendelse (kameraer) og er alene sendt til mig efterfølgende.',adm:'Det opkrævede "administrationsgebyr" er i realiteten en kontrolafgift for en påstået overtrædelse af parkeringsvilkårene.',baas:'Afmærkningen af parkeringsbåsen var så nedslidt og utydelig, at jeg ikke kunne se, hvor båsen var.',forer:'Det var ikke mig, der førte køretøjet og foretog parkeringen.',ikketilm:'Parkeringsselskabet var ikke tilsluttet Parkeringsklagenævnet på dagen for parkeringen.',post:'Kontrolafgiften blev hverken anbragt på køretøjet eller overgivet til mig på stedet. Jeg har først modtaget den efterfølgende.',skilt:'Det fremgik ikke klart og forståeligt af skiltningen, hvilke vilkår der gjaldt for parkeringen.',seddel:'Meddelelsen om kontrolafgiften opfylder ikke kravene i kontrolafgiftsbekendtgørelsens § 2.',betalt:'Jeg havde betalt for parkeringen på den pågældende plads i det pågældende tidsrum.',taste:'Jeg betalte for parkeringen i det pågældende tidsrum, men tastede ved en fejl et forkert registreringsnummer eller en forkert områdekode.',till:'Jeg havde gyldig tilladelse til at parkere på pladsen på tidspunktet, og tilladelsen var anbragt i bilen.',gaest:'Jeg var ved at hente en gæstetilladelse, da afgiften blev pålagt.',skive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',flere:'Jeg har fået mere end én kontrolafgift for den samme sammenhængende parkering.',tid:'Jeg bestrider, at den tilladte parkeringstid var overskredet.',ktaste:'Jeg betalte for parkeringen i hele det pågældende tidsrum, men kom ved en fejl til at taste køretøjets registreringsnummer forkert.',kbetalt:'Jeg havde betalt for parkeringen i det pågældende tidsrum.',kskive:'P-skiven var indstillet korrekt efter ankomsttidspunktet og anbragt synligt i forruden.',klicens:'Jeg havde på tidspunktet en gyldig parkeringslicens til området.',kskilt:'Det fremgik ikke tydeligt af skiltningen og afmærkningen på stedet, hvilke regler der gjaldt for parkeringen.'};
 function e(x){return String(x).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
 var dd=a.dato?a.dato.split('-').reverse().join('.'):'[dato]';
 var mod=kom?(a.kommune||o.kommune?e(a.kommune||o.kommune)+' Kommune, Parkering':'[Kommunen], Parkering'):(o.sel?e(o.sel):'[Parkeringsselskabet]');
