@@ -57,6 +57,7 @@ if(a.grund==='forer'){lvl=Math.max(lvl,2);sel.push('forer');why.push('Kun den, d
 if(a.grund==='tid'){sel.push('tid');why.push('Overskredet tid er svært at vinde på, medmindre skiltningen var utydelig, eller selskabet har regnet tiden forkert.')}
 if(a.hvor==='vi'||a.skilt==='vi'||a.seddel==='vi')why.push('Du svarede "ved ikke" på et spørgsmål. Kig på afgiften og skiltene igen. Det kan give dig et stærkere argument.')
 if(a.klaget==='afslag'||a.klaget==='intet')why.push('Du har allerede klaget til selskabet. Næste skridt er Parkeringsklagenævnet. Gebyret er 175 kr, og du får det tilbage, hvis du får medhold. Klagen til nævnet er med i pakken.')}
+if(lvl===1&&a.hvem==='priv')sel.unshift('vedikke');
 a.grunde=sel;a.typ=a.hvem==='kom'?'kom':'priv';a.lvl=lvl;a.why=why;store('pklagen',a);location.href='resultat.html';
 }
 var PH=document.getElementById('photo'),WZ=document.getElementById('wizbox'),ST=document.getElementById('ocrstat'),RD=document.getElementById('readinfo');
