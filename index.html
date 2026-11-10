@@ -1,24 +1,22 @@
 <!doctype html><html lang="da"><head><!-- Google tag (consent mode: ingen cookies uden samtykke) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18561853822"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','AW-18561853822');</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=10">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=11">
 <title>Tjek din p-afgift, før du betaler – P-klagen</title>
 <meta name="description" content="Fået en p-afgift fra et parkeringsselskab eller kommunen? Tag et billede og tjek gratis, om den holder. Klagen koster 99 kr, og du får pengene tilbage, hvis selskabet siger nej.">
 <meta name="google-site-verification" content="Mpg_jB1zWkkeQY0jtddM4j9RGQEZ2UmPokF3PFPTFTA" />
-</head><body>
+</head><body class="narrow">
 <header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a><a class="toplink" href="#pris">Pris</a></div></header>
 <main>
-<section class="hero split"><div class="in">
-<div class="copy">
-<h1>Tjek p-afgiften, før du betaler</h1>
-<p class="sub">Mange p-afgifter har fejl, som betyder, at du ikke skal betale. Se på et minut, om din er en af dem.</p>
-<ul class="facts"><li>Gratis tjek</li><li>Uden login</li><li>Private selskaber og kommuner</li></ul>
-</div>
-<div class="card" id="tjek"><div class="wiz">
+<section class="hero"><div class="in">
+<h1>Tjek din p-afgift, før du betaler</h1>
+<p class="sub">Tag et billede af afgiften, og se på et minut, om du skal betale den. Tjekket er gratis og kræver ikke login.</p>
+</div></section>
+
+<section class="in tool"><div class="card" id="tjek"><div class="wiz">
 <div id="photo" class="snap">
-<h3>Tag et billede af afgiften</h3>
-<p class="small">Vi læser den og stiller dig et par korte spørgsmål. Billedet bliver på din telefon.</p>
 <label class="btn wide">Tag eller vælg billede<input type="file" id="pic" accept="image/*" hidden></label>
+<p class="small">Billedet bliver på din telefon.</p>
 <p class="ocrstat" id="ocrstat" aria-live="polite"></p>
 <button class="back" type="button" id="skip">Har du den ikke ved hånden? Svar på et par spørgsmål i stedet</button>
 </div>
@@ -27,52 +25,18 @@
 <div class="prog" id="prog"></div>
 <div id="wiz"></div>
 </div>
-</div></div>
-</div></section>
+</div></div></section>
 
-<section class="band"><div class="in stats">
-<div><b>483 af 885</b><span>klagere fik medhold hos Parkeringsklagenævnet i 2020</span></div>
-<div><b>1. juli 2025</b><span>Siden da skal en privat p-afgift sidde på bilen. Den må ikke bare komme med posten</span></div>
-<div><b>0 kr</b><span>koster det at klage til selskabet eller kommunen</span></div>
-</div></section>
-
-<section class="in sec split2">
-<div class="ticketwrap" aria-hidden="true"><div class="ticket">
-<div class="th"><span>Kontrolafgift</span><span>Tjekket</span></div>
-<ul>
-<li class="x"><span>Sat på bilen eller givet til dig</span><i>Nej</i></li>
-<li><span>Skilte med regler og pris</span><i>Ja</i></li>
-<li><span>Selskabet må udstede afgifter</span><i>Ja</i></li>
-<li><span>Alle oplysninger står på afgiften</span><i>Ja</i></li>
+<section class="in sec" id="pris">
+<h2>Sådan fungerer det</h2>
+<ul class="plain">
+<li><b>Tjekket er gratis</b><span>Du får at vide, om afgiften holder, og hvorfor.</span></li>
+<li><b>Klagen koster 99 kr</b><span>Holder afgiften ikke, skriver vi klagen. Du kopierer den ind i selskabets formular.</span></li>
+<li><b>Pengene tilbage</b><span>Siger selskabet nej til klagen, får du dine 99 kr igen.</span></li>
 </ul>
-<div class="stamp">Holder ikke</div>
-</div></div>
-<div class="stack">
-<h2>Det tjekker vi for dig</h2>
-<p class="lead">Fire ting skal være i orden, før et p-selskab kan kræve penge af dig. Er bare én af dem ikke det, kan afgiften falde.</p>
-<p class="small">De fleste betaler uden at kigge efter. Det tager et minut at tjekke først.</p>
-<p><a class="btn" href="#tjek">Tjek min afgift</a></p>
-</div>
 </section>
 
-<section class="in sec" style="padding-top:0">
-<h2>Ét tjek, to udfald</h2>
-<div class="two">
-<div><span class="k">Afgiften ser rigtig ud</span><h3>Så siger vi det ærligt</h3><p class="small">Du ved, hvor du står, før du betaler. Det koster ikke noget.</p></div>
-<div><span class="k">Afgiften holder ikke</span><h3>Så får du klagen</h3><p class="small" style="color:var(--ink)">Færdigskrevet med de rigtige regler og klar til at sende til selskabet. 99 kr.</p></div>
-</div>
-</section>
-
-<section class="in sec" id="pris" style="padding-top:0">
-<h2>99 kr, og kun hvis du vil klage</h2>
-<div class="steps3">
-<div><h3>Tjek gratis</h3><p class="small">Du ser resultatet og begrundelsen, før du betaler noget.</p></div>
-<div><h3>Få klagen</h3><p class="small">Vi skriver den ud fra dine svar. Du kopierer den ind i selskabets formular.</p></div>
-<div><h3>Pengene tilbage</h3><p class="small">Siger selskabet nej til klagen, sender du os afslaget og får dine 99 kr igen.</p></div>
-</div>
-</section>
-
-<section class="in sec" style="padding-top:0">
+<section class="in sec">
 <h2>Spørgsmål</h2>
 <div class="faq">
 <details><summary>Kom afgiften med posten eller efter en kamera-scanning?</summary><p>Siden 1. juli 2025 skal afgiften sidde på bilen eller gives til dig. En afgift, der kun er sendt bagefter, kan som udgangspunkt ikke kræves betalt. Parkeringsklagenævnet har i 2026 også annulleret en kamera-afgift fra før den dato. <a href="p-afgift-sendt-med-posten.html">Sendt med posten</a> · <a href="p-afgift-fra-kamera.html">Fra kamera</a></p></details>
