@@ -3,25 +3,24 @@ function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 var A={},AUTO={},busy=false;
 function idag(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
 var Q=[
-{id:'hvem',t:'Hvem er afgiften fra?',o:[['priv','Et privat firma, fx Q-Park, APCOA, Gardian eller EuroPark'],['kom','Kommunen'],['pol','Politiet']]},
-{id:'hvor',if:function(a){return a.hvem==='priv'},t:'Hvordan fik du den?',o:[['anpr','Den kom bagefter, og der var kameraer, der scannede nummerpladen'],['post','Den kom bagefter, med posten, i e-Boks eller på mail'],['bil','Den sad på bilen, eller en vagt gav mig den'],['vi','Kan ikke huske det']]},
-{id:'dato',if:function(a){return a.hvem==='priv'},t:'Hvilken dato parkerede du?',d:1},
-{id:'grund',if:function(a){return a.hvem==='priv'},t:'Hvad siger de, du har gjort?',o:[['betalt','Ikke betalt, men det havde jeg'],['skive','Manglende eller forkert p-skive'],['tid','Overskredet tid'],['till','Ingen tilladelse, men jeg havde en'],['gaest','Holdt der uden tilladelse, mens jeg hentede gæstekort'],['flere','Flere afgifter for samme parkering'],['adm','Et "administrationsgebyr", "servicegebyr" eller en faktura for parkering'],['baas','Holdt uden for båsen, men stregerne var svære at se'],['forer','Det var ikke mig, der kørte bilen'],['andet','Noget andet']]},
+{id:'hvem',t:'Hvem er afgiften fra?',o:[['priv','Et privat p-selskab, fx Q-Park eller APCOA'],['kom','Kommunen'],['pol','Politiet']]},
+{id:'hvor',if:function(a){return a.hvem==='priv'},t:'Hvordan fik du den?',o:[['bil','Den sad på bilen, eller en vagt gav mig den'],['post','Med posten, i e-Boks eller på mail'],['anpr','Bagefter, og pladsen havde kameraer'],['vi','Kan ikke huske det']]},
+{id:'efter',if:function(a){return a.hvem==='priv'&&(a.hvor==='post'||a.hvor==='anpr')&&!a.dato},t:'Parkerede du efter 1. juli 2025?',o:[['ja','Ja'],['nej','Nej, det var før']]},
+{id:'grund',if:function(a){return a.hvem==='priv'},t:'Hvad siger de, du har gjort?',more:6,o:[['betalt','Ikke betalt, men det havde jeg'],['skive','Manglende eller forkert p-skive'],['tid','Holdt for længe'],['till','Ingen tilladelse, men jeg havde en'],['adm','Det er et "gebyr" eller en faktura, ikke en afgift'],['andet','Ved ikke, eller noget andet'],['gaest','Jeg var ved at hente gæstekort'],['flere','Flere afgifter for samme parkering'],['baas','Holdt uden for båsen, men stregerne var svære at se'],['forer','Det var ikke mig, der kørte bilen']]},
 {id:'fejl',t:'Hvordan havde du betalt?',if:function(a){return a.grund==='betalt'},o:[['ok','Korrekt, og jeg har kvittering'],['taste','Jeg tastede forkert nummerplade eller zone'],['ingen','Jeg har ingen kvittering']]},
-{id:'skilt',if:function(a){return a.hvem==='priv'},t:'Kunne man se skiltene?',o:[['ok','Ja, tydeligt, også hvad afgiften kostede'],['daarlig','Nej, de var svære at se eller manglede prisen'],['vi','Lagde ikke mærke til dem']]},
-{id:'seddel',if:function(a){return a.hvem==='priv'},t:'Står der tid, sted, nummerplade, betalingsfrist og hvor man klager?',o:[['ja','Ja, det hele'],['nej','Nej, noget mangler'],['vi','Har ikke tjekket']]},
-{id:'kgrund',if:function(a){return a.hvem==='kom'},t:'Hvad siger kommunen, du har gjort?',o:[['taste','Ikke betalt, men jeg betalte og tastede nummerpladen forkert'],['betalt','Ikke betalt, men det havde jeg, og jeg har kvittering'],['skive','Forkert p-skive, men den var stillet rigtigt'],['licens','Ingen licens, men jeg havde en gyldig'],['skilt','Skiltningen var uklar eller manglede'],['andet','Noget andet']]},
-{id:'klaget',if:function(a){return a.hvem==='priv'},t:'Har du klaget til dem?',o:[['nej','Ikke endnu'],['afslag','Ja, de sagde nej'],['intet','Ja, men intet svar i 3 måneder']]}
+{id:'skilt',if:function(a){return a.hvem==='priv'},t:'Kunne du se skiltene med reglerne?',o:[['ok','Ja, tydeligt'],['daarlig','Nej, de var svære at se eller manglede prisen'],['vi','Lagde ikke mærke til dem']]},
+{id:'kgrund',if:function(a){return a.hvem==='kom'},t:'Hvad siger kommunen, du har gjort?',o:[['taste','Ikke betalt, men jeg betalte og tastede nummerpladen forkert'],['betalt','Ikke betalt, men det havde jeg, og jeg har kvittering'],['skive','Forkert p-skive, men den var stillet rigtigt'],['licens','Ingen licens, men jeg havde en gyldig'],['skilt','Skiltningen var uklar eller manglede'],['andet','Noget andet']]}
 ];
 var i=0,W=document.getElementById('wiz'),P=document.getElementById('prog'),R=document.getElementById('res');
 function vis(){return Q.filter(function(q){return !AUTO[q.id]&&(!q.if||q.if(A))})}
-function draw(){var L=vis(),q=L[i],h='<div class="step"><p class="label">Spørgsmål '+(i+1)+' af '+L.length+'</p><h3>'+q.t+'</h3>';
-P.innerHTML=L.map(function(x,j){return '<i class="'+(j<=i?'on':'')+'"></i>'}).join('');
-if(q.o){h+='<div class="opts" role="radiogroup">';q.o.forEach(function(o){h+='<label><input type="radio" name="w_'+q.id+'" value="'+o[0]+'"'+(A[q.id]===o[0]?' checked':'')+'> <span>'+o[1]+'</span></label>'});h+='</div>'}
+function draw(){var L=vis(),q=L[i],h='<div class="step"><h3>'+q.t+'</h3>';
+var n=Math.max(L.length,4),bar='';for(var j=0;j<n;j++)bar+='<i class="'+(j<=i?'on':'')+'"></i>';P.innerHTML=bar;
+if(q.o){var open=!q.more||q._open||q.o.slice(q.more).some(function(o){return o[0]===A[q.id]});h+='<div class="opts" role="radiogroup" aria-label="'+q.t+'">';q.o.forEach(function(o,n){h+='<label'+(!open&&n>=q.more?' hidden':'')+'><input type="radio" name="w_'+q.id+'" value="'+o[0]+'"'+(A[q.id]===o[0]?' checked':'')+'> <span>'+o[1]+'</span></label>'});if(!open)h+='<button class="more" type="button" id="mr">Vis flere grunde</button>';h+='</div>'}
 else{h+='<label class="fld"><span>Dato</span><input id="w_'+q.id+'" type="date" max="'+idag()+'" value="'+(A[q.id]||'')+'"></label>'}
 if(q.h)h+='<p class="hint">'+q.h+'</p>';
 h+='<div class="nav">'+(q.o?'':'<button class="btn" type="button" id="nx">Næste</button>')+(i?'<button class="back" type="button" id="bk">Tilbage</button>':'')+'</div></div>';
 W.innerHTML=h;
+var mr=document.getElementById('mr');if(mr)mr.onclick=function(){q._open=1;draw()};
 var bk=document.getElementById('bk');if(bk)bk.onclick=function(){i--;draw()};
 if(q.o){[].forEach.call(W.querySelectorAll('input'),function(r){r.onclick=function(){if(busy)return;busy=true;A[q.id]=r.value;setTimeout(function(){busy=false;if(q.id==='hvem'&&r.value==='pol')return result();next()},180)}})}
 else{var inp=document.getElementById('w_'+q.id);document.getElementById('nx').onclick=function(){if(!inp.value||inp.value>idag()){inp.focus();return}A[q.id]=inp.value;next()}}
@@ -39,7 +38,7 @@ if(a.kgrund==='skilt'){lvl=2;sel.push('kskilt');why.push('Var skiltningen uklar 
 if(a.kgrund==='andet'){why.push('Skriv din egen forklaring i klagen, og vedlæg billeder. Uden et konkret argument er det svært at få afgiften annulleret.')}
 why.push('Du klager gratis direkte til kommunen. Der findes ikke et klagenævn for kommunale p-afgifter, så kommunens svar er det sidste skridt uden for retten.')}
 else{
-var efter=a.dato&&a.dato>='2025-07-01';
+var efter=a.dato?a.dato>='2025-07-01':a.efter==='ja';
 if(a.hvor==='anpr'){lvl=3;sel.push('anpr');why.push('Afgiften er udstedt via kameraer og sendt bagefter. '+(efter?'Siden 1. juli 2025 skal en kontrolafgift sættes synligt på bilen eller gives til føreren. ':'')+'Parkeringsklagenævnet annullerede i september 2026 en sådan afgift, selv om den var fra december 2024, fordi den ikke blev sat på bilen eller givet til føreren (sag 14567). Det er et meget stærkt argument.')}
 else if(a.hvor==='post'&&efter){lvl=3;sel.push('post');why.push('Afgiften er sendt bagefter. Siden 1. juli 2025 skal en kontrolafgift sættes synligt på bilen eller gives til føreren. En afgift, der kun er sendt med posten, e-Boks eller mail, er som udgangspunkt ikke gyldig.')}
 else if(a.hvor==='post'){lvl=Math.max(lvl,2);sel.push('post');why.push('Afgiften er sendt bagefter. Før 1. juli 2025 måtte det kun ske, hvis det ikke var muligt at sætte den på bilen. Selskabet skal kunne vise, at det var tilfældet.')}
@@ -55,8 +54,8 @@ if(a.grund==='adm'){lvl=Math.max(lvl,3);sel.push('adm');why.push('Et "administra
 if(a.grund==='baas'){lvl=Math.max(lvl,2);sel.push('baas');why.push('Var stregerne nedslidte eller utydelige, kan du ikke forventes at vide, hvor båsen var. Nævnet gav en bilist medhold i oktober 2026 i netop sådan en sag (sag 11593). Tag billeder af stregerne.')}
 if(a.grund==='forer'){lvl=Math.max(lvl,2);sel.push('forer');why.push('Kun den, der parkerede bilen, hæfter for afgiften. Ejeren hæfter ikke, har Højesteret slået fast (U.2015.27H). Du skal dog kunne sandsynliggøre, at det ikke var dig, fx at du var et andet sted. Skriv kun det, der er sandt.')}
 if(a.grund==='tid'){sel.push('tid');why.push('Overskredet tid er svært at vinde på, medmindre skiltningen var utydelig, eller selskabet har regnet tiden forkert.')}
-if(a.hvor==='vi'||a.skilt==='vi'||a.seddel==='vi')why.push('Du svarede "ved ikke" på et spørgsmål. Kig på afgiften og skiltene igen. Det kan give dig et stærkere argument.')
-if(a.klaget==='afslag'||a.klaget==='intet')why.push('Du har allerede klaget til selskabet. Næste skridt er Parkeringsklagenævnet. Gebyret er 175 kr, og du får det tilbage, hvis du får medhold. Klagen til nævnet er med i pakken.')}
+if(a.hvor==='vi'||a.skilt==='vi')why.push('Kig på afgiften og skiltene igen, hvis du kan. Det kan give dig et stærkere argument.')
+}
 if(lvl===1&&a.hvem==='priv')sel.unshift('vedikke');
 a.grunde=sel;a.typ=a.hvem==='kom'?'kom':'priv';a.lvl=lvl;a.why=why;store('pklagen',a);location.href='resultat.html';
 }
@@ -69,6 +68,5 @@ A={};AUTO={};var seen=[];if(r.hvem){A.hvem=r.hvem;if(r.hvem==='priv'&&r.sel)AUTO
 if(r.hvor){A.hvor=r.hvor;seen.push(r.hvor==='anpr'?'kamera':'sendt bagefter')}
 if(r.dato){A.dato=r.dato;var d=r.dato.split('-');seen.push(d[2]+'.'+d[1]+'.'+d[0])}
 if(r.reg)seen.push(r.reg);if(r.bel)seen.push(r.bel+' kr');
-if(r.reg&&r.dato&&r.kl&&r.bel&&r.nr){A.seddel='ja';AUTO.seddel=1}
-RD.hidden=!seen.length;RD.textContent='Vi læste: '+seen.join(' · ')+'. Vi har udfyldt det for dig. Ret det, hvis noget er læst forkert.';startWiz()})};
+RD.hidden=!seen.length;RD.innerHTML='Vi læste: <b>'+seen.join(' · ').replace(/[<>&]/g,'')+'</b>. <button class="back" type="button" id="wrong">Passer det ikke? Svar selv</button>';var wr=document.getElementById('wrong');if(wr)wr.onclick=function(){document.getElementById('skip').onclick()};startWiz()})};
 })();

@@ -1,34 +1,29 @@
 <!doctype html><html lang="da"><head><!-- Google tag (consent mode: ingen cookies uden samtykke) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18561853822"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','AW-18561853822',{page_location:location.origin+location.pathname});</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex,nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,600..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=8">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex,nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,600..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=9">
 <title>Din klage – P-klagen</title>
 </head><body><header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a><button class="btn sm ghost noprint" onclick="window.print()">Gem som PDF</button></div></header>
 <main>
-<section class="in sec noprint" style="max-width:760px">
+<section class="in sec noprint" style="max-width:720px">
 <p class="small"><span class="mark">Tak for dit køb</span></p>
-<h1>Lav din klage</h1>
-<p class="sub">Upload et billede af afgiften, eller udfyld felterne selv. Din klage bliver lavet nederst på siden. Når klagen er lavet, får du et personligt link, så du altid kan finde den igen.</p>
-<div class="drop"><b>Upload et billede af afgiften</b><span class="small" style="color:var(--ink)">Vi læser nummer, nummerplade, dato, beløb og selskab og udfylder felterne. Billedet bliver på din telefon og sendes ikke nogen steder hen.</span><input type="file" id="pic" accept="image/*"><span class="ocrstat" id="ocrstat" aria-live="polite"></span></div>
-<form id="f" style="display:grid;gap:14px">
-<h2 style="margin-top:12px">Dig</h2>
-<label class="field"><span>Dit fulde navn</span><input type="text" name="navn" autocomplete="name"></label>
-<label class="field"><span>Adresse</span><input type="text" name="adr" autocomplete="street-address"></label>
-<label class="field"><span>Postnr. og by</span><input type="text" name="by" placeholder="8000 Aarhus C"></label>
-<label class="field"><span>E-mail og telefon</span><input type="text" name="kontakt"></label>
-<h2 style="margin-top:12px">Afgiften</h2>
-<div class="opts" role="radiogroup"><label><input type="radio" name="typ" value="priv" checked> <span>Fra et privat p-selskab (kontrolafgift)</span></label><label><input type="radio" name="typ" value="kom"> <span>Fra kommunen (parkeringsafgift)</span></label></div>
+<h1>Din klage er næsten klar</h1>
+<p class="sub">Udfyld felterne, så skriver vi klagen. Det tager et par minutter.</p>
+<div class="drop"><b>Spring tastearbejdet over</b><span class="small" style="color:var(--ink)">Tag et billede af afgiften, så udfylder vi det, vi kan læse. Billedet bliver på din telefon.</span><input type="file" id="pic" accept="image/*"><span class="ocrstat" id="ocrstat" aria-live="polite"></span></div>
+<form id="f" class="form">
+<h2 style="margin-top:10px">Afgiften</h2>
+<div class="opts check" role="radiogroup" aria-label="Hvem er afgiften fra?"><label><input type="radio" name="typ" value="priv" checked> <span>Fra et privat p-selskab</span></label><label><input type="radio" name="typ" value="kom"> <span>Fra kommunen</span></label></div>
 <label class="field" id="kfelt" hidden><span>Kommune</span><input type="text" name="kommune" placeholder="Fx København"></label>
-<label class="field" id="sfelt"><span>Parkeringsselskab</span><input type="text" name="sel" list="sels" placeholder="Fx Q-Park, Apcoa, Gardian, Europark"><datalist id="sels"><option value="Oparko"><option value="DinParkering"><option value="SimplyPark"><option value="Securitas (SikkerParkering)"><option value="UnoPark"><option value="Q-Park"><option value="APCOA PARKING"><option value="Gardian"><option value="ParkZone"><option value="EuroPark"><option value="OnePark"></datalist></label>
-<p class="small" id="nstat" aria-live="polite" hidden></p>
-<label class="field"><span>Afgiftens nummer</span><input type="text" name="nr"></label>
-<label class="field"><span>Nummerplade</span><input type="text" name="reg" placeholder="AB 12 345"></label>
+<label class="field" id="sfelt"><span>Parkeringsselskab</span><input type="text" name="sel" list="sels" placeholder="Fx Q-Park, Apcoa, Gardian"><datalist id="sels"><option value="Oparko"><option value="DinParkering"><option value="SimplyPark"><option value="Securitas (SikkerParkering)"><option value="UnoPark"><option value="Q-Park"><option value="APCOA PARKING"><option value="Gardian"><option value="ParkZone"><option value="EuroPark"><option value="OnePark"></datalist></label>
+<p id="nstat" aria-live="polite" hidden></p>
+<div class="grid2">
+<label class="field"><span>Nummerplade</span><input type="text" name="reg" placeholder="AB 12 345" autocapitalize="characters"></label>
+<label class="field"><span>Afgiftens nummer</span><input type="text" name="nr" placeholder="Står på afgiften"></label>
 <label class="field"><span>Dato for parkeringen</span><input type="date" name="dato"></label>
-<label class="field"><span>Klokkeslæt (står på afgiften)</span><input type="text" name="kl" placeholder="14.32"></label>
-<label class="field"><span>Sted (adresse eller navn på p-pladsen)</span><input type="text" name="sted"></label>
-<label class="field"><span>Beløb (kr)</span><input type="number" name="bel" inputmode="numeric"></label>
-<h2 style="margin-top:12px">Hvorfor holder afgiften ikke?</h2>
-<p class="small">Sæt kryds ved alt, der passer. Har du taget det gratis tjek, er de rigtige punkter allerede valgt.</p>
+<label class="field"><span>Sted</span><input type="text" name="sted" placeholder="Adresse eller navn på p-pladsen"></label>
+</div>
+<details class="fold" id="fgr"><summary><span>Hvorfor holder afgiften ikke? <small id="grc"></small></span></summary><div class="body">
+<p class="small">Sæt kryds ved det, der passer. Er du i tvivl, så vælg den øverste.</p>
 <div class="opts check" id="kopts" hidden>
 <label><input type="checkbox" name="ktaste"> <span>Jeg betalte, men tastede nummerpladen forkert</span></label>
 <label><input type="checkbox" name="kbetalt"> <span>Jeg havde betalt og har kvittering</span></label>
@@ -70,9 +65,23 @@
 <label><input type="checkbox" name="flere"> <span>Jeg fik flere afgifter for den samme parkering</span></label>
 </div>
 <p class="small">Vælg kun det, der er sandt. Domstolene har afvist klager over håndskrevne sedler i stedet for p-skive, p-billetter med bagsiden opad og betaling i en app med forkert kode. Den slags kan du stadig klage over, men så beder du om at få afgiften annulleret af god vilje.</p>
-<label class="field"><span>Forklar med dine egne ord, hvad der skete (valgfrit, men det styrker klagen)</span><textarea name="egen" placeholder="Fx: Jeg betalte i EasyPark kl. 14.05 for 2 timer. Skiltet ved indkørslen var dækket af en busk."></textarea></label>
-<label class="field"><span>Hvad har du som bevis?</span><input type="text" name="bevis" placeholder="Fx billeder af skilte, kvittering fra appen, foto af p-skiven"></label>
-<button class="btn" type="button" id="mk">Lav min klage</button>
+</div></details>
+<label class="field"><span>Hvad skete der? Skriv det kort med dine egne ord (valgfrit)</span><textarea name="egen" placeholder="Fx: Jeg betalte i EasyPark kl. 14.05 for 2 timer. Skiltet ved indkørslen var dækket af en busk."></textarea></label>
+<h2 style="margin-top:10px">Dig</h2>
+<label class="field"><span>Dit fulde navn</span><input type="text" name="navn" autocomplete="name"></label>
+<div class="grid2">
+<label class="field"><span>Adresse</span><input type="text" name="adr" autocomplete="street-address"></label>
+<label class="field"><span>Postnr. og by</span><input type="text" name="by" placeholder="8000 Aarhus C"></label>
+</div>
+<details class="fold"><summary><span>Flere oplysninger <small>valgfrit</small></span></summary><div class="body">
+<div class="grid2">
+<label class="field"><span>Klokkeslæt på afgiften</span><input type="text" name="kl" placeholder="14.32"></label>
+<label class="field"><span>Beløb (kr)</span><input type="number" name="bel" inputmode="numeric"></label>
+</div>
+<label class="field"><span>E-mail eller telefon, som selskabet kan svare på</span><input type="text" name="kontakt"></label>
+<label class="field"><span>Andre beviser, du vedhæfter</span><input type="text" name="bevis" placeholder="Fx foto af p-skiven"></label>
+</div></details>
+<button class="btn wide" type="button" id="mk">Skriv min klage</button>
 </form>
 </section>
 <div id="out"></div>
@@ -108,13 +117,17 @@ try{var t=JSON.parse(localStorage.getItem('pklagen')||'null');if(t){if(t.dato)f.
 try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s)Object.keys(s).forEach(function(k){var el=f.elements[k];if(!el||!el.type||el.type==='radio')return;if(el.type==='checkbox')el.checked=s[k];else el.value=s[k]});if(s&&s.typ)setTyp(s.typ)}catch(x){}
 try{if(t&&t.typ)setTyp(t.typ)}catch(x){}
 try{applyOCR(JSON.parse(localStorage.getItem('pklagen-ocr')||'null'),true)}catch(x){}
-togTyp();togSub();f.elements.skilt.addEventListener('change',togSub);f.elements.seddel.addEventListener('change',togSub);
+togTyp();togSub();
+var FG=document.getElementById('fgr');
+function grCount(){var n=(f.elements.typ.value==='kom'?BK:BP).filter(function(k){return f.elements[k].checked}).length;document.getElementById('grc').textContent=n?'· '+n+' valgt':'· vælg mindst én';return n}
+FG.open=!grCount();f.addEventListener('change',grCount);
+f.elements.skilt.addEventListener('change',togSub);f.elements.seddel.addEventListener('change',togSub);
 function enc(a){return btoa(unescape(encodeURIComponent(JSON.stringify(a)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 function dec(t){t=t.replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(t))))}
 function addLink(a,o){var url=location.href.split('#')[0]+'#k='+enc(a);try{history.replaceState(null,'',url)}catch(x){}
 var box=document.createElement('div');box.className='savebox noprint';
 box.innerHTML='<b>Gem dit personlige link</b><span>Linket åbner præcis denne klage igen, også på en anden telefon eller computer. Gem det, så du har det, hvis selskabet siger nej.</span><input type="text" readonly value="'+esc(url)+'"><div class="row"><button class="btn sm" type="button">Kopiér linket</button><a class="btn sm ghost" href="mailto:?subject='+encodeURIComponent('Min p-klage')+'&body='+encodeURIComponent('Min klage over p-afgiften: '+url)+'">Send linket til mig selv</a></div>';
-var sec=o.querySelector('section');sec.insertBefore(box,sec.firstChild);
+var sec=o.querySelector('#gem')||o.querySelector('section');sec.insertBefore(box,sec.firstChild);
 var inp=box.querySelector('input'),b=box.querySelector('button');inp.onclick=function(){inp.select()};
 b.onclick=function(){function ok(){b.textContent='Kopieret'}if(navigator.clipboard)navigator.clipboard.writeText(url).then(ok,function(){inp.select();document.execCommand('copy');ok()});else{inp.select();document.execCommand('copy');ok()}}}
 
@@ -122,9 +135,12 @@ var LBL={vedikke:'Selskabet skal bevise afgiften',anpr:'Afgift via kamera, sendt
 var EV={anpr:'Billede af skilte, der nævner kameraer eller nummerpladescanning, og brevet eller mailen med afgiften',adm:'Fakturaen eller mailen med gebyret',baas:'Billeder af stregerne for båsen, tæt på og på afstand',forer:'Dokumentation for, at du var et andet sted, fx en billet, en kvittering eller en kalender',ikketilm:'Skærmbillede af nævnets liste over tilsluttede selskaber (parkeringsklagenaevnet.dk/da/tilsluttede-selskaber)',post:'Kuverten, e-Boks-beskeden eller mailen med afgiften, så datoen kan ses',skilt:'Billeder af skiltet ved indkørslen og skiltene på pladsen, også på afstand, så man ser, hvor svære de er at se',seddel:'Et tydeligt billede af hele afgiften, forside og bagside',betalt:'Skærmbillede eller kvittering fra appen med tid, zone og nummerplade',taste:'Skærmbillede eller kvittering fra appen, der viser betalingen',till:'Kopi af tilladelsen og et billede af, hvor den lå i bilen',gaest:'Hvis muligt: besked eller kvittering, der viser, hvornår du hentede gæstekortet',skive:'Billede af p-skiven i forruden',flere:'Kopi af alle afgifterne for parkeringen',ktaste:'Skærmbillede eller kvittering fra appen, der viser betalingen',kbetalt:'Kvittering eller skærmbillede fra appen',kskive:'Billede af p-skiven i forruden',klicens:'Kopi af licensen',kskilt:'Billeder af skiltning og afmærkning på stedet'};
 function styrke(w){return w>=5?['Meget stærk','s3']:w>=4?['Stærk','s3']:w>=3?['Middel','s2']:w>=1?['Svag','s1']:['Støtter','s2']}
 function brev(lab,txt,em){return '<div class="report pagebreak"><p class="small">'+lab+'</p>'+(em?'<p class="small noprint">Emne til mail eller formular: <b>'+esc(em)+'</b></p>':'')+'<div class="letter">'+txt+'</div><div class="row noprint" style="margin-top:14px"><button class="btn sm cp" type="button">Kopiér brevet</button><span class="small">Sæt det ind i selskabets formular eller en mail.</span></div></div>'}
-function wireCopy(o){[].forEach.call(o.querySelectorAll('.cp'),function(b){b.onclick=function(){var t=b.parentNode.parentNode.querySelector('.letter').textContent;function ok(){b.textContent='Kopieret';setTimeout(function(){b.textContent='Kopiér brevet'},2500)}
+function wireCopy(o){[].forEach.call(o.querySelectorAll('.cp'),function(b){b.onclick=function(){var lab=b.textContent,t=(b.getAttribute('data-l')?o.querySelector(b.getAttribute('data-l')):b.parentNode.parentNode.querySelector('.letter')).textContent;function ok(){b.textContent='Kopieret';setTimeout(function(){b.textContent=lab},2500)}
 function old(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(ta)}
 if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,old);else old()}})}
+function fold(t,sub,body,id){return '<details class="fold"'+(id?' id="'+id+'"':'')+'><summary><span>'+t+(sub?' <small>'+sub+'</small>':'')+'</span></summary><div class="body">'+body+'</div></details>'}
+var REFUND='<div class="guar noprint"><b>Pengene tilbage</b><span>Siger de nej? Send afslaget til <a href="mailto:augusthavsteen757@gmail.com?subject=P-klagen%20pengene%20tilbage" style="color:#fff">augusthavsteen757@gmail.com</a> inden 90 dage efter købet, så får du dine 99 kr igen.</span></div>';
+var GEM='<div id="gem" class="stack noprint"></div>',PDF='<div class="row noprint"><button class="btn sm ghost" onclick="window.print()">Gem alle breve som PDF</button></div>';
 function caseBox(list){var h='<div class="report noprint"><h2>Din sag</h2><p class="small">Klagen bringer det stærkeste argument først. Selskaber og nævnet tager stilling til det første argument først.</p><ul class="args">';
 list.forEach(function(x){var s=styrke(x.w);h+='<li><span class="tag '+s[1]+'">'+s[0]+'</span> '+esc(LBL[x.k]||x.k)+'</li>'});
 h+='</ul><h3>Det skal du vedlægge</h3><ul class="evl">';var seen={};h+='<li><label><input type="checkbox"> Kopi af afgiften</label></li>';
@@ -150,7 +166,7 @@ try{localStorage.setItem(K,JSON.stringify(a))}catch(x){}
 var o=document.getElementById('out'),miss=[];
 if(!a.navn)miss.push('dit navn');if(a.typ==='kom'&&!a.kommune)miss.push('kommune');if(a.typ!=='kom'&&!a.sel)miss.push('parkeringsselskab');if(!a.reg)miss.push('nummerplade');if(!a.dato)miss.push('dato');if(!a.sted)miss.push('sted');
 if(!(a.typ==='kom'?BK:BP).some(function(k){return a[k]})&&!a.egen)miss.push('mindst én grund eller din egen forklaring');
-if(miss.length){o.innerHTML='<div class="in" style="max-width:760px;padding-bottom:30px"><div class="result bad"><p>Udfyld først: '+miss.join(', ')+'.</p></div></div>';o.scrollIntoView({behavior:'smooth'});return}
+if(miss.length){if(miss[miss.length-1].indexOf('mindst')===0)FG.open=true;o.innerHTML='<div class="in" style="max-width:720px;padding-bottom:30px"><div class="result bad"><p>Du mangler: '+miss.join(', ')+'.</p></div></div>';o.scrollIntoView({behavior:'smooth'});return}
 var efter=a.dato>='2025-07-01',idag=lang(new Date());
 var G=[];function P(w,k,t){G.push({w:w,k:k,t:t})}
 var TT={vedikke:'I skal dokumentere, at afgiften er berettiget',anpr:'Afgiften er eftersendt efter kamerakontrol og ikke anbragt på køretøjet',adm:'"Gebyret" er i realiteten en kontrolafgift',baas:'Båsafmærkningen var utydelig',forer:'Jeg var ikke fører af køretøjet',ikketilm:'Selskabet var ikke tilsluttet Parkeringsklagenævnet',post:'Afgiften er eftersendt og ikke anbragt på køretøjet',skilt:'Skiltningen opfylder ikke kravene',seddel:'Afgiften mangler oplysninger, den skal indeholde',betalt:'Parkeringen var betalt',taste:'Parkeringen var betalt, men med en tastefejl',till:'Jeg havde gyldig tilladelse',gaest:'Jeg var ved at hente en gæstetilladelse',skive:'P-skiven var korrekt indstillet',flere:'Flere afgifter for samme parkering'};
@@ -198,32 +214,31 @@ var kforlob=a.egen?'<b>Hvad der skete</b>\n'+esc(a.egen)+'\n\n':'';
 var kgrund=KG.map(function(x,i){return (i+1)+'. '+esc(x)}).join('\n\n')||'Som det fremgår af forløbet ovenfor, er der ikke grundlag for afgiften.';
 var kfakta='Parkeringsafgift nr.: '+(esc(a.nr)||'[nummer]')+'\nKøretøj: '+esc(a.reg)+'\nDato og tid: '+d(a.dato)+(a.kl?' kl. '+esc(a.kl):'')+'\nSted: '+esc(a.sted)+(a.bel?'\nBeløb: '+esc(a.bel)+' kr':'');
 var kb=hoved+'\n\n'+esc(a.kommune)+' Kommune, Parkering\n\n'+idag+'\n\n<b>Indsigelse mod parkeringsafgift</b>\n\n'+kfakta+'\n\nJeg gør indsigelse mod parkeringsafgiften og beder om, at den annulleres.\n\n'+kforlob+'<b>Begrundelse</b>\n'+kgrund+'\n\nJeg beder om en skriftlig afgørelse. Fastholder kommunen afgiften, beder jeg om en begrundelse og om de billeder og den øvrige dokumentation, som afgiften bygger på. Jeg beder samtidig om aktindsigt i sagens dokumenter, herunder billeder og kontrollørens noter, jf. forvaltningslovens § 9. Da afgiften er bestridt, beder jeg om, at den ikke sendes til inddrivelse, mens indsigelsen behandles.\n\n<b>Bilag</b>\n1. Kopi af parkeringsafgiften'+(a.bevis?'\n2. '+esc(a.bevis):'')+'\n\nMed venlig hilsen\n\n\n'+esc(a.navn);
-o.innerHTML='<section class="in sec" style="max-width:860px"><div class="noprint row"><button class="btn" onclick="window.print()">Gem som PDF</button></div><div class="report"><h2>Sådan gør du</h2><ol class="steps">'+
-'<li>Læs klagen igennem, og ret det, der ikke passer. Alt skal være sandt.</li>'+
-'<li>Saml beviser: kvittering eller skærmbillede fra appen, licens, billeder af p-skive og skilte.</li>'+
-(kl?'<li>Gå til <a href="'+kl+'">'+esc(a.kommune)+' Kommunes side for klager over parkeringsafgifter</a>. Indsæt teksten fra klagen, og vedhæft beviserne. <b>Det er gratis.</b></li>':'<li>Find "klag over parkeringsafgift" på '+esc(a.kommune)+' Kommunes hjemmeside, eller brug adressen på afgiften. Indsæt teksten fra klagen, og vedhæft beviserne. <b>Det er gratis.</b></li>')+
-'<li>Gem en kopi og kvitteringen for, at klagen er sendt.</li>'+
-'<li>Der findes ikke et klagenævn for kommunale p-afgifter. Fastholder kommunen afgiften, kan sagen kun prøves ved domstolene. Kontakt fx FDM, hvis du vil gå videre.</li>'+
-'<li><b>Pengene tilbage:</b> Fastholder kommunen afgiften, så send afgørelsen til <a href="mailto:augusthavsteen757@gmail.com?subject=P-klagen%20pengene%20tilbage">augusthavsteen757@gmail.com</a> inden 90 dage efter dit køb. Så får du dine 99 kr tilbage.</li>'+
-'</ol></div>'+caseBox(KW)+calBox([[21,'Har kommunen svaret på din p-klage?','Har du ikke fået svar, så ring eller skriv til kommunen og henvis til din indsigelse.'],[85,'Sidste chance: pengene tilbage fra P-klagen','Har kommunen fastholdt afgiften, så send afgørelsen til augusthavsteen757@gmail.com inden 90 dage efter købet.']])+brev('Klage til '+esc(a.kommune)+' Kommune',kb,'Indsigelse mod parkeringsafgift'+(a.nr?' nr. '+a.nr:''))+'</section>';
+o.innerHTML='<section class="in sec stack" style="max-width:760px"><div class="noprint stack"><h2>Send klagen i 3 trin</h2><ol class="steps">'+
+'<li><b>Læs klagen igennem, og kopiér den.</b> Alt skal være sandt, så ret det, der ikke passer.<br><button class="btn sm cp" type="button" data-l=".letter">Kopiér klagen</button></li>'+
+(kl?'<li><b>Åbn kommunens klageside</b>, og sæt teksten ind. Det er gratis.<br><a class="btn sm ghost" target="_blank" rel="noopener" href="'+kl+'">Åbn '+esc(a.kommune)+' Kommunes klageside</a></li>':'<li><b>Find "klag over parkeringsafgift"</b> på '+esc(a.kommune)+' Kommunes hjemmeside, eller brug adressen på afgiften. Sæt teksten ind. Det er gratis.</li>')+
+'<li><b>Vedhæft afgiften og dine beviser</b>, og send. Gem kvitteringen for, at klagen er sendt.</li>'+
+'</ol></div>'+brev('Din klage til '+esc(a.kommune)+' Kommune',kb,'Indsigelse mod parkeringsafgift'+(a.nr?' nr. '+a.nr:''))+REFUND+GEM+
+'<div class="noprint">'+fold('Det skal du vedhæfte','',caseBox(KW))+fold('Hvis kommunen ikke svarer, eller siger nej','',''+'<p>Der findes ikke et klagenævn for kommunale p-afgifter. Fastholder kommunen afgiften, kan sagen kun prøves ved domstolene. Kontakt fx FDM, hvis du vil gå videre.</p>'+calBox([[21,'Har kommunen svaret på din p-klage?','Har du ikke fået svar, så ring eller skriv til kommunen og henvis til din indsigelse.'],[85,'Sidste chance: pengene tilbage fra P-klagen','Har kommunen fastholdt afgiften, så send afgørelsen til augusthavsteen757@gmail.com inden 90 dage efter købet.']]))+'</div>'+PDF+'</section>';
 wireCopy(o);addLink(a,o);o.scrollIntoView({behavior:'smooth'});return}
-var stark=a.post&&efter||a.betalt||a.ikketilm||a.anpr||a.adm;
-o.innerHTML='<section class="in sec" style="max-width:860px"><div class="noprint row"><button class="btn" onclick="window.print()">Gem alt som PDF</button><span class="small">Vælg "Gem som PDF" i printvinduet.</span></div>'+
-'<div class="report"><h2>Sådan gør du</h2><ol class="steps">'+
-'<li>Læs klagen igennem, og ret det, der ikke passer. Alt skal være sandt. En klage med forkerte oplysninger taber. Slet de bilag fra listen, som du ikke har.</li>'+(NV?(NV.ok===false?'<li><b>Vi har tjekket selskabet:</b> '+esc(NV.navn)+' var ikke tilsluttet Parkeringsklagenævnet på dagen. Det er dit stærkeste argument, og det står først i klagen.</li>':'<li><b>Vi har tjekket selskabet:</b> '+esc(NV.navn)+' er tilsluttet Parkeringsklagenævnet, så du kan klage dertil, hvis de siger nej.</li>'):'<li>Tjek, at selskabet står på <a href="https://www.parkeringsklagenaevnet.dk/da/tilsluttede-selskaber/">nævnets liste over tilsluttede selskaber</a>. Står det der ikke, så sæt kryds i det punkt og lav klagen igen. Det er dit stærkeste argument.</li>')+'<li>Saml beviser: billeder af skiltene ved indkørslen og på pladsen, kvittering eller skærmbillede fra appen, billede af p-skive eller tilladelse.</li>'+
-(function(){var L=linkFor(a.sel);return L?'<li>Gå til <a href="'+L[2]+'">'+L[1]+'s klageformular</a>. Tryk "Kopiér brevet" under <b>brev 1</b>, sæt teksten ind, og vedhæft billeder og kvitteringer. <b>Det er gratis.</b></li>':'<li>Find selskabets klageformular eller e-mail. Den står på afgiften. Sæt teksten fra <b>brev 1</b> ind, og vedhæft billeder og kvitteringer. <b>Det er gratis.</b></li>'})()+
-'<li>Gem en kopi og kvitteringen for, at klagen er sendt. Den skal du bruge, hvis du går videre.</li>'+(a.vedikke?'<li><b>Når selskabet svarer:</b> Kig billederne igennem. Kan du se en fejl, fx et skilt uden pris eller ingen afgift på bilen, så åbn dit personlige link, sæt kryds ved fejlen, og lav klagen igen. Så har du et rigtigt argument til nævnet.</li>':'')+''+
-'<li>Får du rykkere eller brev fra inkasso, så send <b>'+(ejT?'brev 2':'brev 3')+'</b> med en kopi af din klage. Rykkergebyrer må højst være 100 kr.</li>'+
-(ejT?'<li>Selskabet var ikke tilsluttet nævnet, så du kan ikke klage dertil. Fastholder selskabet kravet, så betal ikke uden at have fået råd, fx hos FDM eller en advokat.</li>':'')+'<li'+(NV&&NV.ok===false?' hidden':'')+'>Siger selskabet nej, eller svarer de ikke inden 3 måneder, kan du klage til Parkeringsklagenævnet på <a href="https://www.parkeringsklagenaevnet.dk/da/indsend-klage/">parkeringsklagenaevnet.dk/da/indsend-klage</a> med <b>brev 2</b>. Gebyret er 175 kr, og du får det tilbage, hvis du får medhold. Brug en computer, for nævnets formular kan ikke sendes fra mobil eller tablet. Nævnet behandler kun afgifter udstedt 1. juli 2018 eller senere.</li>'+
-'<li><b>Pengene tilbage:</b> Siger selskabet nej, så send deres afslag til <a href="mailto:augusthavsteen757@gmail.com?subject=P-klagen%20pengene%20tilbage">augusthavsteen757@gmail.com</a> inden 90 dage efter dit køb. Så får du dine 99 kr tilbage. Du kan stadig gå videre til nævnet.</li>'+
-'</ol>'+(stark?'':'<p class="small">Tip: Tag billeder af skiltene ved indkørslen og på pladsen, hvis du kan komme forbi. Billeder er det stærkeste bevis i den slags sager.</p>')+'</div>'+
-caseBox(G)+calBox([[21,'Har '+a.sel+' svaret på din p-klage?','Har de ikke svaret, så send rykkeren fra din klageside.'+(ejT?'':' Svarer de ikke inden 3 måneder, kan du klage til Parkeringsklagenævnet med brev 2.')],[35,'Frist for svar på din indsigtsanmodning','Selskabet skal svare på din anmodning om billeder og data inden en måned. Har de ikke gjort det, kan du klage til Datatilsynet.'],[85,'Sidste chance: pengene tilbage fra P-klagen','Har selskabet sagt nej, så send afslaget til augusthavsteen757@gmail.com inden 90 dage efter købet.'],[92,'Du kan nu klage til Parkeringsklagenævnet','Har selskabet ikke svaret i 3 måneder, kan du klage til nævnet med brev 2 på parkeringsklagenaevnet.dk.']].filter(function(e){return !(ejT&&e[0]===92)}))+brev('Brev 1 · til '+esc(a.sel),b1,emne)+
-brev('Rykker · kun hvis du ikke har fået svar efter 21 dage · skriv datoen i [klammer]',rk,'Rykker: '+emne)+
-(ejT?'':brev('Brev 2 · til Parkeringsklagenævnet, kun hvis selskabet siger nej · udfyld felterne i [klammer]',b2))+
-brev((ejT?'Brev 2':'Brev 3')+' · til inkasso, kun hvis du får rykkere',b3,'Kravet er bestridt: kontrolafgift'+nrT)+'</section>';
+var LK=linkFor(a.sel);
+o.innerHTML='<section class="in sec stack" style="max-width:760px"><div class="noprint stack"><h2>Send klagen i 3 trin</h2><ol class="steps">'+
+'<li><b>Læs klagen igennem, og kopiér den.</b> Alt skal være sandt, så ret det, der ikke passer, og slet bilag, du ikke har.<br><button class="btn sm cp" type="button" data-l=".letter">Kopiér klagen</button></li>'+
+(LK?'<li><b>Åbn '+LK[1]+'s klageformular</b>, og sæt teksten ind. Det er gratis.<br><a class="btn sm ghost" target="_blank" rel="noopener" href="'+LK[2]+'">Åbn klageformularen</a></li>':'<li><b>Find selskabets klageformular eller e-mail.</b> Den står på afgiften. Sæt teksten ind. Det er gratis.</li>')+
+'<li><b>Vedhæft afgiften og dine beviser</b>, og send. Gem kvitteringen for, at klagen er sendt.</li>'+
+'</ol>'+(NV?(ejT?'<p id="nvn" class="small"><b>Vi har tjekket selskabet:</b> '+esc(NV.navn)+' var ikke tilsluttet Parkeringsklagenævnet på dagen. Det er dit stærkeste argument, og det står først i klagen.</p>':''):'<p class="small">Tjek, at selskabet står på <a href="https://www.parkeringsklagenaevnet.dk/da/tilsluttede-selskaber/" target="_blank" rel="noopener">nævnets liste</a>. Står det der ikke, så sæt kryds i det punkt ovenfor, og lav klagen igen. Det er dit stærkeste argument.</p>')+'</div>'+
+brev('Din klage til '+esc(a.sel),b1,emne)+REFUND+GEM+
+'<div class="noprint"><h2 style="margin:18px 0 12px">Hvis der sker mere</h2>'+
+fold('Det skal du vedhæfte','',caseBox(G))+
+(a.vedikke?fold('Når selskabet sender deres billeder','','<p>Kig billederne igennem. Kan du se en fejl, fx et skilt uden pris eller ingen afgift på bilen, så åbn dit personlige link, sæt kryds ved fejlen, og lav klagen igen. Så har du et rigtigt argument til nævnet.</p>'):'')+
+fold('De svarer ikke','efter 21 dage','<p>Send rykkeren herunder. Skriv dagens dato i [klammer].</p>'+brev('Rykker til '+esc(a.sel),rk,'Rykker: '+emne)+calBox([[21,'Har '+a.sel+' svaret på din p-klage?','Har de ikke svaret, så send rykkeren fra din klageside.'+(ejT?'':' Svarer de ikke inden 3 måneder, kan du klage til Parkeringsklagenævnet med brev 2.')],[35,'Frist for svar på din indsigtsanmodning','Selskabet skal svare på din anmodning om billeder og data inden en måned. Har de ikke gjort det, kan du klage til Datatilsynet.'],[85,'Sidste chance: pengene tilbage fra P-klagen','Har selskabet sagt nej, så send afslaget til augusthavsteen757@gmail.com inden 90 dage efter købet.'],[92,'Du kan nu klage til Parkeringsklagenævnet','Har selskabet ikke svaret i 3 måneder, kan du klage til nævnet med brev 2 på parkeringsklagenaevnet.dk.']].filter(function(e){return !(ejT&&e[0]===92)})))+
+(ejT?fold('De siger nej','','<p>Selskabet var ikke tilsluttet nævnet, så du kan ikke klage dertil. Fastholder selskabet kravet, så betal ikke uden at have fået råd, fx hos FDM eller en advokat. Du får stadig dine 99 kr tilbage fra os.</p>'):fold('De siger nej','klag til Parkeringsklagenævnet','<p>Du kan klage til nævnet på <a href="https://www.parkeringsklagenaevnet.dk/da/indsend-klage/" target="_blank" rel="noopener">parkeringsklagenaevnet.dk</a>, også hvis selskabet ikke har svaret efter 3 måneder. Det koster 175 kr, som du får tilbage, hvis du får medhold. Brug en computer, for nævnets formular kan ikke sendes fra mobil. Du får stadig dine 99 kr tilbage fra os.</p>'+brev('Klage til Parkeringsklagenævnet · udfyld felterne i [klammer]',b2)))+
+fold('Du får rykkere eller brev fra inkasso','','<p>Send brevet herunder med en kopi af din klage. Rykkergebyrer må højst være 100 kr.</p>'+brev('Svar til inkasso',b3,'Kravet er bestridt: kontrolafgift'+nrT))+
+'</div>'+PDF+'</section>';
 wireCopy(o);addLink(a,o);o.scrollIntoView({behavior:'smooth'});
 });
-try{var h=location.hash.match(/k=([\w-]+)/);if(h){var A0=dec(h[1]);Object.keys(A0).forEach(function(k){var el=f.elements[k];if(!el||!el.type||el.type==='radio')return;if(el.type==='checkbox')el.checked=!!A0[k];else el.value=A0[k]});setTyp(A0.typ||'priv');togSub();nCheck();document.getElementById('mk').click()}}catch(x){}
+window.addEventListener('beforeprint',function(){[].forEach.call(document.querySelectorAll('#out details'),function(x){x.open=true})});
+try{var h=location.hash.match(/k=([\w-]+)/);if(h){var A0=dec(h[1]);Object.keys(A0).forEach(function(k){var el=f.elements[k];if(!el||!el.type||el.type==='radio')return;if(el.type==='checkbox')el.checked=!!A0[k];else el.value=A0[k]});setTyp(A0.typ||'priv');togSub();nCheck();FG.open=!grCount();document.getElementById('mk').click()}}catch(x){}
 })();
 </script>
 </body></html>

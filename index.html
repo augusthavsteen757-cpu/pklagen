@@ -1,59 +1,65 @@
 <!doctype html><html lang="da"><head><!-- Google tag (consent mode: ingen cookies uden samtykke) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18561853822"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','AW-18561853822');</script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=6">
-<title>P-klagen – holder din p-afgift?</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=9">
+<title>Tjek din p-afgift, før du betaler – P-klagen</title>
 <meta name="description" content="Fået en p-afgift fra et parkeringsselskab eller kommunen? Tag et billede og tjek gratis, om den holder. Klagen koster 99 kr, og du får pengene tilbage, hvis selskabet siger nej.">
 <meta name="google-site-verification" content="Mpg_jB1zWkkeQY0jtddM4j9RGQEZ2UmPokF3PFPTFTA" />
 </head><body>
 <header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a><a class="toplink" href="#pris">Pris</a></div></header>
 <main>
-<section class="hero"><div class="in">
-<p class="label" style="color:var(--ink)">P-afgift fra et p-selskab eller kommunen</p>
-<h1>Holder din p-afgift?</h1>
-<p class="sub">Tag et billede af afgiften. Gratis, uden login, 1 minut.</p>
-<p class="small" style="color:var(--ink)">Vil du have klagen skrevet, koster den 99 kr. Siger selskabet nej, får du pengene tilbage.</p>
-</div></section>
-
-<section class="in tool" id="tjek"><div class="card"><div class="wiz">
+<section class="hero split"><div class="in">
+<div class="copy">
+<h1>Tjek p-afgiften, før du betaler</h1>
+<p class="sub">Mange p-afgifter har fejl, som betyder, at du ikke skal betale. Se på et minut, om din er en af dem.</p>
+<ul class="facts"><li>Gratis tjek</li><li>Uden login</li><li>Private selskaber og kommuner</li></ul>
+</div>
+<div class="card" id="tjek"><div class="wiz">
 <div id="photo" class="snap">
 <h3>Tag et billede af afgiften</h3>
-<p class="small">Vi læser det, vi kan, og spørger kun om resten. Billedet bliver på din telefon.</p>
-<label class="btn">Tag eller vælg billede<input type="file" id="pic" accept="image/*" hidden></label>
+<p class="small">Vi læser den og stiller dig et par korte spørgsmål. Billedet bliver på din telefon.</p>
+<label class="btn wide">Tag eller vælg billede<input type="file" id="pic" accept="image/*" hidden></label>
 <p class="ocrstat" id="ocrstat" aria-live="polite"></p>
-<button class="back" type="button" id="skip">Jeg har ikke afgiften ved hånden. Spørg mig i stedet.</button>
+<button class="back" type="button" id="skip">Har du den ikke ved hånden? Svar på et par spørgsmål i stedet</button>
 </div>
 <div id="wizbox" hidden>
-<p class="small" id="readinfo" hidden></p>
+<p id="readinfo" hidden></p>
 <div class="prog" id="prog"></div>
 <div id="wiz"></div>
 </div>
-</div></div></section>
+</div></div>
+</div></section>
 
 <section class="in sec">
-<h2>Sådan virker det</h2>
-<div class="steps3">
-<div><h3>Tjek gratis</h3><p class="small">Du får at vide, om afgiften holder, og hvorfor.</p></div>
-<div><h3>Upload afgiften</h3><p class="small">Tag et billede af sedlen eller brevet. Vi udfylder felterne for dig.</p></div>
-<div><h3>Send klagen</h3><p class="small">Du får klagen og det præcise link til selskabets klageformular.</p></div>
+<h2>Ét tjek, to udfald</h2>
+<p class="lead">De fleste betaler bare. Men en afgift, der er sendt med posten, mangler tydelige skilte eller kommer fra et selskab, der ikke må udstede dem, skal du ikke betale.</p>
+<div class="two">
+<div><span class="k">Afgiften ser rigtig ud</span><h3>Så siger vi det ærligt</h3><p class="small">Du ved, hvor du står, før du betaler. Det koster ikke noget.</p></div>
+<div><span class="k">Afgiften holder ikke</span><h3>Så får du klagen</h3><p class="small" style="color:var(--ink)">Færdigskrevet med de rigtige regler og klar til at sende til selskabet. 99 kr.</p></div>
 </div>
 </section>
 
-<section class="in sec" id="pris"><div class="guar" style="max-width:780px"><b>Klagen koster 99 kr, og du får pengene tilbage, hvis de siger nej</b><span>Tjekket er gratis. Først når du har set dit resultat, vælger du, om du vil have klagen.</span></div></section>
+<section class="in sec" id="pris" style="padding-top:0">
+<h2>99 kr, og kun hvis du vil klage</h2>
+<div class="steps3">
+<div><h3>Tjek gratis</h3><p class="small">Du ser resultatet og begrundelsen, før du betaler noget.</p></div>
+<div><h3>Få klagen</h3><p class="small">Vi skriver den ud fra dine svar. Du kopierer den ind i selskabets formular.</p></div>
+<div><h3>Pengene tilbage</h3><p class="small">Siger selskabet nej til klagen, sender du os afslaget og får dine 99 kr igen.</p></div>
+</div>
+</section>
 
-<section class="in sec">
-<h2>Godt at vide</h2>
+<section class="in sec" style="padding-top:0">
+<h2>Spørgsmål</h2>
 <div class="faq">
-<details><summary>Kom afgiften med posten?</summary><p>Siden 1. juli 2025 skal afgiften sidde på bilen eller gives til dig. En afgift, der kun er sendt bagefter, kan som udgangspunkt ikke kræves betalt. <a href="p-afgift-sendt-med-posten.html">Læs mere</a></p></details>
-<details><summary>Kom afgiften efter en kamera-scanning?</summary><p>Parkeringsklagenævnet annullerede i 2026 en afgift fra et kamerasystem, også selv om den var fra før juli 2025. <a href="p-afgift-fra-kamera.html">Læs mere</a></p></details>
+<details><summary>Kom afgiften med posten eller efter en kamera-scanning?</summary><p>Siden 1. juli 2025 skal afgiften sidde på bilen eller gives til dig. En afgift, der kun er sendt bagefter, kan som udgangspunkt ikke kræves betalt. Parkeringsklagenævnet har i 2026 også annulleret en kamera-afgift fra før den dato. <a href="p-afgift-sendt-med-posten.html">Sendt med posten</a> · <a href="p-afgift-fra-kamera.html">Fra kamera</a></p></details>
 <details><summary>Kan det betale sig at klage?</summary><p>Ofte. I 2020 fik klageren medhold i 483 af 885 sager hos Parkeringsklagenævnet, altså over halvdelen. Kilde: <a href="https://www.tv2kosmopol.dk/lorryland/det-betaler-sig-at-klage-over-halvdelen-af-p-boederne-bliver-annulleret" rel="noopener" target="_blank">TV 2 Kosmopol, 24. aug. 2021</a>. Det er ingen garanti for din sag.</p></details>
-<details><summary>Koster det noget at klage?</summary><p>Nej, ikke til selskabet. Kun hvis du går videre til <a href="parkeringsklagenaevnet.html">Parkeringsklagenævnet</a>, koster det 175 kr. Dem får du tilbage, hvis du vinder.</p></details>
-<details><summary>Hvad med kommunen eller politiet?</summary><p>Afgifter fra kommunen kan du også klage over her. Har du fx betalt men tastet nummerpladen forkert, har Højesteret givet bilister ret. Bøder fra politiet er straffesager, og dem hjælper vi ikke med.</p></details>
-<details><summary>Er I advokater?</summary><p>Nej. Klagen bygger på dine svar og på reglerne. Vi kan ikke love, at du vinder, og derfor har vi garantien.</p></details>
+<details><summary>Koster det noget at klage til selskabet?</summary><p>Nej. Kun hvis du går videre til <a href="parkeringsklagenaevnet.html">Parkeringsklagenævnet</a>, koster det 175 kr. Dem får du tilbage, hvis du vinder.</p></details>
+<details><summary>Hvad med kommunen eller politiet?</summary><p>Afgifter fra kommunen kan du også tjekke her. Har du fx betalt, men tastet nummerpladen forkert, har Højesteret givet bilister ret. Bøder fra politiet er straffesager, og dem hjælper vi ikke med.</p></details>
+<details><summary>Er I advokater?</summary><p>Nej. Klagen bygger på dine svar og på reglerne. Vi kan ikke love, at du vinder, og derfor får du pengene tilbage, hvis selskabet siger nej.</p></details>
 </div>
 </section>
 </main>
-<footer><div class="in"><p>P-klagen drives af Klardal. Vi er ikke advokater, og tjekket er ikke juridisk rådgivning. <a href="klage-over-p-afgift.html">Klag over p-afgift</a> · <a href="p-afgift-fra-kamera.html">P-afgift fra kamera</a> · <a href="administrationsgebyr-parkering.html">Administrationsgebyr</a> · <a href="p-selskab-ikke-tilsluttet.html">Ikke tilsluttet nævnet</a> · <a href="vilkaar.html">Vilkår</a></p></div></footer>
-<script src="ocr.js?v=8"></script><script src="tjek.js?v=9"></script>
+<footer><div class="in"><p>P-klagen drives af Klardal. Vi er ikke advokater, og tjekket er ikke juridisk rådgivning.</p><p><a href="klage-over-p-afgift.html">Klag over p-afgift</a> · <a href="p-afgift-fra-kamera.html">P-afgift fra kamera</a> · <a href="administrationsgebyr-parkering.html">Administrationsgebyr</a> · <a href="p-selskab-ikke-tilsluttet.html">Ikke tilsluttet nævnet</a> · <a href="vilkaar.html">Vilkår</a></p></div></footer>
+<script src="ocr.js?v=8"></script><script src="tjek.js?v=10"></script>
 
 </body></html>
