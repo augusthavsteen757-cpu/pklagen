@@ -13,6 +13,7 @@
 <section class="in tool"><div class="card"><div class="wiz">
 <a class="btn wide" id="go" href="klage-p9w4x7.html">Åbn min klage</a>
 <p class="small" id="n">Gem siden som bogmærke, så du kan finde klagen igen.</p>
+<p class="small" id="pt">Siger selskabet nej? <a href="penge-tilbage.html">Få dine 99 kr tilbage</a>.</p>
 </div></div></section>
 </main>
 <footer><div class="in"><p>P-klagen drives af Klardal. <a href="vilkaar.html">Vilkår</a></p></div></footer>
@@ -21,7 +22,7 @@
 // LABEL: sæt konverteringens label fra Google Ads ind her. Uden label måles købet som sidevisning af tak.html.
 var LABEL='';
 (function(){var m=/[?&]s=(cs_[A-Za-z0-9_]+)/.exec(location.search),s=m&&m[1];
-if(!s){document.getElementById('h').textContent='Vi kan ikke se et køb';document.getElementById('s').textContent='Du kommer hertil, når du har betalt. Har du betalt og ser dette, så skriv til os, så hjælper vi dig.';var g=document.getElementById('go');g.textContent='Tag tjekket';g.href='./';document.getElementById('n').hidden=true;return}
+if(!s){document.getElementById('h').textContent='Vi kan ikke se et køb';document.getElementById('s').textContent='Du kommer hertil, når du har betalt. Har du betalt og ser dette, så skriv til os, så hjælper vi dig.';var g=document.getElementById('go');g.textContent='Tag tjekket';g.href='./';document.getElementById('n').hidden=true;document.getElementById('pt').hidden=true;return}
 var ny=true;try{ny=localStorage.getItem('pklagen-kob')!==s;localStorage.setItem('pklagen-betalt','1');localStorage.setItem('pklagen-kob',s)}catch(e){}
 if(ny&&LABEL)gtag('event','conversion',{send_to:'AW-18561853822/'+LABEL,value:99,currency:'DKK',transaction_id:s});
 var u='klage-p9w4x7.html?b='+encodeURIComponent(s);document.getElementById('go').href=u;setTimeout(function(){location.replace(u)},2500)})();

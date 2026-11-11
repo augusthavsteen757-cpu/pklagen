@@ -1,0 +1,48 @@
+<!doctype html><html lang="da"><head><!-- Google tag (consent mode: ingen cookies uden samtykke) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18561853822"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});gtag('js',new Date());gtag('config','AW-18561853822',{page_location:location.origin+location.pathname});</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex,nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&display=swap"><link rel="stylesheet" href="style.css?v=17">
+<title>Tabte du? Få dine 99 kr tilbage – P-klagen</title>
+<meta name="description" content="Sagde selskabet nej til din klage? Send os afslaget, og få dine 99 kr tilbage på det kort, du betalte med.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head><body class="narrow"><header class="top"><div class="in"><a class="logo" href="./"><span>p-klagen</span></a></div></header>
+<main>
+<section class="hero"><div class="in">
+<h1>Tabte du? Få dine 99 kr tilbage</h1>
+<p class="sub">Sagde selskabet eller kommunen nej, får du pengene igen. Det tager to minutter.</p>
+</div></section>
+<section class="in tool"><div class="card"><div class="wiz">
+<ol class="steps">
+<li><b>Gem afslaget</b> fra selskabet eller kommunen som skærmbillede, PDF eller foto.</li>
+<li><b>Udfyld herunder.</b> Så åbner vi en færdig mail til os. Du vedhæfter afslaget og sender.</li>
+<li><b>Pengene kommer tilbage</b> til det kort, du købte med.</li>
+</ol>
+<form id="f" novalidate>
+<label class="fld"><span>E-mail, du købte med</span><input name="mail" type="email" autocomplete="email" placeholder="navn@mail.dk"></label>
+<label class="fld"><span>Hvem sagde nej?</span><input name="sel" type="text" placeholder="Fx Q-Park, APCOA eller kommunens navn"></label>
+<label class="fld"><span>Afgiftens nummer</span><input name="nr" type="text" inputmode="numeric" placeholder="Står på afgiften"></label>
+<button class="btn wide" id="go" type="button">Åbn mail med færdig tekst</button>
+<p class="small" id="msg" aria-live="polite"></p>
+</form>
+<p class="small">Virker knappen ikke, så send selv en mail til <a href="mailto:augusthavsteen757@gmail.com?subject=P-klagen%20pengene%20tilbage">augusthavsteen757@gmail.com</a> med afslaget vedhæftet, afgiftens nummer og den e-mail, du købte med.</p>
+</div></div></section>
+<section class="in sec">
+<h2>Det skal være opfyldt</h2>
+<ul class="plain">
+<li><b>Inden 90 dage</b><span>Send afslaget inden 90 dage efter, du købte klagen.</span></li>
+<li><b>Afslaget skal vise afgiftens nummer</b><span>Og dit navn eller din e-mail skal passe med betalingen.</span></li>
+<li><b>Klagen skal være sendt til selskabet</b><span>Garantien gælder én gang pr. afgift og pr. betalingskort. <a href="vilkaar.html">Se vilkårene</a></span></li>
+</ul>
+</section>
+</main>
+<footer><div class="in"><p>P-klagen drives af Klardal. <a href="vilkaar.html">Vilkår</a></p></div></footer>
+<script>
+(function(){var f=document.getElementById('f'),m=document.getElementById('msg');
+document.getElementById('go').onclick=function(){var E=f.elements,mail=E.mail.value.trim(),sel=E.sel.value.trim(),nr=E.nr.value.trim();
+if(!mail||!sel||!nr){m.textContent='Udfyld alle tre felter først.';return}
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){m.textContent='Tjek e-mailadressen.';return}
+var tekst='Hej\n\n'+sel+' har sagt nej til min klage, og jeg vil bruge pengene-tilbage-garantien.\n\nAfgiftens nummer: '+nr+'\nE-mail, jeg købte med: '+mail+'\n\nAfslaget er vedhæftet.\n\nMed venlig hilsen';
+m.textContent='Husk at vedhæfte afslaget, før du sender.';
+location.href='mailto:augusthavsteen757@gmail.com?subject='+encodeURIComponent('P-klagen pengene tilbage, afgift '+nr)+'&body='+encodeURIComponent(tekst)}})();
+</script>
+</body></html>

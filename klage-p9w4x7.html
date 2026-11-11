@@ -146,7 +146,7 @@ function wireCopy(o){[].forEach.call(o.querySelectorAll('.cp'),function(b){b.onc
 function old(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(ta)}
 if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,old);else old()}})}
 function fold(t,sub,body,id){return '<details class="fold"'+(id?' id="'+id+'"':'')+'><summary><span>'+t+(sub?' <small>'+sub+'</small>':'')+'</span></summary><div class="body">'+body+'</div></details>'}
-var REFUND='<div class="guar noprint"><b>Pengene tilbage</b><span>Siger de nej? Send afslaget til <a href="mailto:augusthavsteen757@gmail.com?subject=P-klagen%20pengene%20tilbage" style="color:#fff">augusthavsteen757@gmail.com</a> inden 90 dage efter købet, så får du dine 99 kr igen.</span></div>';
+var REFUND='<div class="guar noprint"><b>Pengene tilbage</b><span>Siger de nej? <a href="penge-tilbage.html">Få dine 99 kr tilbage her</a>. Du sender os afslaget inden 90 dage efter købet.</span></div>';
 var GEM='<div id="gem" class="stack noprint"></div>',PDF='<div class="row noprint"><button class="btn sm ghost" onclick="window.print()">Gem alle breve som PDF</button></div>';
 function caseBox(list){var h='<div class="report noprint"><h2>Din sag</h2><p class="small">Klagen bringer det stærkeste argument først. Selskaber og nævnet tager stilling til det første argument først.</p><ul class="args">';
 list.forEach(function(x){var s=styrke(x.w);h+='<li><span class="tag '+s[1]+'">'+s[0]+'</span> '+esc(LBL[x.k]||x.k)+'</li>'});
