@@ -21,14 +21,17 @@
 
 <section class="in sec" id="pris" hidden><div class="buy">
 <div class="stack">
+<div id="bygger" hidden><h2>Din klage bygger på</h2><ul class="plain" id="byggerl"></ul></div>
 <h2>Starten på din klage</h2>
 <p class="small">Skrevet ud fra dine svar. Resten låses op, når du har betalt, og så sætter du navn og adresse på.</p>
-<div class="peek"><div class="letter" id="peek"></div><div class="lock"><div class="letter blur" aria-hidden="true" id="lockd"></div><div class="lockmsg"><b>Resten af klagen låses op for 99 kr</b><a class="btn sm" href="#kob">Lås op</a></div></div></div>
+<div class="peek"><div class="letter" id="peek"></div><div class="lock"><div class="letter blur" aria-hidden="true" id="lockd"></div><div class="lockmsg"><b>Resten af klagen låses op for 99 kr</b><span class="small">Dit stærkeste argument med afgørelser · krav om billeder og dokumentation · frist på 21 dage · anmodning om indsigt i dine data</span><a class="btn sm" href="#kob">Lås op</a></div></div></div>
 </div>
 <div class="receipt" id="kob">
 <span class="label">Klagen, klar til at sende</span>
 <span class="big">99 kr</span>
 <ul id="inkl"></ul>
+<p class="small" id="anker"></p>
+<p class="small" id="selv"></p>
 <div class="guar"><b>Pengene tilbage</b><span id="gtxt">Siger selskabet nej, sender du os afslaget og får dine 99 kr igen. <a href="penge-tilbage.html">Sådan gør du</a>.</span></div>
 <label class="consent"><input type="checkbox" id="ok"> <span>Jeg har læst <a href="vilkaar.html">vilkårene</a> og vil have klagen med det samme. Fortrydelsesretten bortfalder, men garantien gælder stadig.</span></label>
 <a class="btn wide" id="buy" href="#pris" aria-disabled="true">Køb klagen</a>
@@ -70,6 +73,10 @@ var dd=a.dato?a.dato.split('-').reverse().join('.'):'[dato]';
 var mod=kom?(a.kommune||o.kommune?e(a.kommune||o.kommune)+' Kommune, Parkering':'[Kommunen], Parkering'):(o.sel?e(o.sel):'[Parkeringsselskabet]');
 var pk='[Dit navn]\n[Din adresse]\n\n'+mod+'\n\n<b>'+(kom?'Indsigelse mod parkeringsafgift':'Indsigelse mod kontrolafgift')+'</b>\n\n'+(kom?'Parkeringsafgift':'Kontrolafgift')+' nr.: '+(o.nr?e(o.nr):'[nummer]')+'\nKøretøj: '+(o.reg?e(o.reg):'[nummerplade]')+'\nDato: '+dd+(o.kl?' kl. '+e(o.kl):'')+'\n\nJeg bestrider kravet og beder om, at afgiften annulleres.\n\n<b>Begrundelse</b>\n1. '+(T1[g[0]]||'');
 document.getElementById('peek').innerHTML=pk;
+if(g.length){document.getElementById('byggerl').innerHTML=g.slice(0,3).map(function(x){return '<li><b>'+N[x]+'</b></li>'}).join('');document.getElementById('bygger').hidden=false}
+var kr=kom?'kommunen':'selskabet',sn=kom?'kommunens':(o.sel?e(o.sel)+'s':'selskabets');
+document.getElementById('anker').innerHTML=(o.bel?'Afgiften er '+e(o.bel)+' kr. Klagen koster 99 kr, og du får dem tilbage, hvis '+kr+' siger nej.':'Klagen koster 99 kr, og du får dem tilbage, hvis '+kr+' siger nej.')+(kom?'':' I 2020 fik klageren medhold i 483 af 885 sager hos Parkeringsklagenævnet (<a href="https://www.tv2kosmopol.dk/lorryland/det-betaler-sig-at-klage-over-halvdelen-af-p-boederne-bliver-annulleret" rel="noopener" target="_blank">TV 2 Kosmopol</a>). Det er ingen garanti for din sag.');
+document.getElementById('selv').textContent='Du sender klagen selv på få minutter. Vi giver dig linket til '+sn+' klageformular.';
 var filler=(g.length>1?'Ud over dette gør jeg gældende, at afgiften er pålagt i strid med reglerne for kontrolafgifter, og at selskabet skal dokumentere de faktiske forhold på tidspunktet.\n\n':'')+'Det følger af reglerne og af retspraksis, at afgiften ikke kan kræves betalt i denne situation, og jeg henviser til de afgørelser, der er nævnt nedenfor.\n\n2. Jeg beder om en skriftlig bekræftelse af, at afgiften er annulleret, og om den dokumentation, som afgiften bygger på, herunder billeder.\n\nDa kravet er bestridt, beder jeg om, at sagen ikke sendes til inkasso, og at der ikke pålægges rykkergebyrer, mens sagen behandles.\n\nBilag\n1. Kopi af afgiften\n2. Dokumentation';
 document.getElementById('lockd').textContent=filler;
 document.getElementById('pris').hidden=false;
