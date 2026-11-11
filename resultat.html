@@ -73,7 +73,7 @@ document.getElementById('peek').innerHTML=pk;
 var filler=(g.length>1?'Ud over dette gør jeg gældende, at afgiften er pålagt i strid med reglerne for kontrolafgifter, og at selskabet skal dokumentere de faktiske forhold på tidspunktet.\n\n':'')+'Det følger af reglerne og af retspraksis, at afgiften ikke kan kræves betalt i denne situation, og jeg henviser til de afgørelser, der er nævnt nedenfor.\n\n2. Jeg beder om en skriftlig bekræftelse af, at afgiften er annulleret, og om den dokumentation, som afgiften bygger på, herunder billeder.\n\nDa kravet er bestridt, beder jeg om, at sagen ikke sendes til inkasso, og at der ikke pålægges rykkergebyrer, mens sagen behandles.\n\nBilag\n1. Kopi af afgiften\n2. Dokumentation';
 document.getElementById('lockd').textContent=filler;
 document.getElementById('pris').hidden=false;
-var BUY='https://buy.stripe.com/3cI3cvfOW8C94t5d096Vq05',ok=document.getElementById('ok'),buy=document.getElementById('buy'),hint=document.getElementById('hint');
+var BUY='https://buy.stripe.com/3cI3cvfOW8C94t5d096Vq05';try{var rf=sessionStorage.getItem('pklagen-ref');if(rf)BUY+='?client_reference_id='+encodeURIComponent(rf)}catch(e){}var ok=document.getElementById('ok'),buy=document.getElementById('buy'),hint=document.getElementById('hint');
 ok.onchange=function(){if(ok.checked){buy.href=BUY;buy.removeAttribute('aria-disabled');hint.hidden=true}else{buy.href='#pris';buy.setAttribute('aria-disabled','true')}};
 buy.onclick=function(e){if(!ok.checked){e.preventDefault();hint.hidden=false}};
 })();
